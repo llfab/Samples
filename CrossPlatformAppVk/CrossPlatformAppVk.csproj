@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+
+	<Nullable>disable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	<Copyright>Stryker</Copyright>
+	<PackageProjectUrl />
+	<PackageVersion>1.0.0</PackageVersion>
+	<Product>Stryker</Product>
+	<AssemblyVersion>1.0.0</AssemblyVersion>
+	<FileVersion>1.0.0</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;S1104</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;S1104</NoWarn>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Assets\avalonia-logo.ico" />
+		<AvaloniaResource Include="Assets\avalonia-logo.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="View\MainWindow.axaml.cs">
+			<DependentUpon>MainWindow.axaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Folder Include="Models\" />
+		<AvaloniaResource Include="Assets\**" />
+		<None Remove=".gitignore" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="_Sandbox\GrungeBackground.jpg" />
+		<Content Include="_Sandbox\GrungeBackground.jpg">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<None Remove="_Sandbox\Pelvis.mbs" />
+		<Content Include="_Sandbox\Pelvis.mbs">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.Desktop\Avalonia.Desktop.csproj" />
+		<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj" />
+		<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.ReactiveUI\Avalonia.ReactiveUI.csproj" />
+		<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.Themes.Fluent\Avalonia.Themes.Fluent.csproj" />
+		<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.Vulkan\Avalonia.Vulkan.csproj" />
+		<ProjectReference Include="..\..\Libraries\BitsOfNature.Core\BitsOfNature.Core.csproj" />
+	    <ProjectReference Include="..\..\Libraries\BitsOfNature.Rendering.Vulkan\BitsOfNature.Rendering.Vulkan.csproj" />
+		<!--<ProjectReference Include="..\BitsOfNature.UI.Avalonia.Vulkan\BitsOfNature.UI.Avalonia.Vulkan.csproj" />-->
+		<ProjectReference Include="..\AvaloniaVulkanFixed\BitsOfNature.UI.Avalonia\BitsOfNature.UI.Avalonia.csproj" />
+  </ItemGroup>
+
+	<Import Project="..\AvaloniaVulkanFixed\build\ReferenceCoreLibraries.props" />
+	<Import Project="..\AvaloniaVulkanFixed\build\BuildTargets.targets" />
+
+</Project>
