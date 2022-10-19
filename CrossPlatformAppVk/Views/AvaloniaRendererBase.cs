@@ -30,6 +30,7 @@ namespace CrossPlatformAppVk.Views
         protected CreationInfo _creationInfo;
         
         protected AvaloniaRenderTarget _renderTarget;
+        public AvaloniaRenderTarget RenderTarget => _renderTarget;
         protected TestRenderer _testRenderer;
         protected BitsVulkanEngine.RenderingContext _renderContext;
         protected BitsVulkan.Device _avaloniaDevice;

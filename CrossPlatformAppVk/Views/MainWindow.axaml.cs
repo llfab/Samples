@@ -228,8 +228,8 @@ namespace CrossPlatformAppVk.Views
             if (this._useSecondaryDevice)
             {
                 this._useSecondaryDevice = false;
-                this._vulkan1.SwitchToSingleDevice();
-                this._vulkan2.SwitchToSingleDevice();
+                this._vulkan1.UseSecondaryDevice = this._useSecondaryDevice;
+                this._vulkan2.UseSecondaryDevice = this._useSecondaryDevice;
             }
         }
         private void rbtnSecondDevice(object sender, RoutedEventArgs e)
@@ -237,8 +237,8 @@ namespace CrossPlatformAppVk.Views
             if (!this._useSecondaryDevice)
             {
                 this._useSecondaryDevice = true;
-                this._vulkan1.SwitchToSecondDevice();
-                this._vulkan2.SwitchToSecondDevice();
+                this._vulkan1.UseSecondaryDevice = this._useSecondaryDevice;
+                this._vulkan2.UseSecondaryDevice = this._useSecondaryDevice;
             }
         }
 
