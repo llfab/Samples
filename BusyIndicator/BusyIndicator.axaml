@@ -1,0 +1,25 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:BitsOfNature.UI.Avalonia.Controls">
+  <Design.PreviewWith>
+    <Grid Height="64" Width="64">
+      <controls:BusyIndicator IsActive="True" DotCount="5"/>
+    </Grid>
+  </Design.PreviewWith>
+
+  <Style Selector="controls|BusyIndicator">
+    <Setter Property="Brush" Value="DodgerBlue"/>
+    <Setter Property="UseLayoutRounding" Value="true"/>
+    <Setter Property="ClipToBounds" Value="true"/>
+    <Style.Animations>
+      <Animation Duration="0:0:1.5" IterationCount="Infinite">
+        <KeyFrame KeyTime="0:0:0">
+          <Setter Property="Phase" Value="0"/>
+        </KeyFrame>
+        <KeyFrame KeyTime="0:0:1.5">
+          <Setter Property="Phase" Value="1"/>
+        </KeyFrame>
+      </Animation>
+    </Style.Animations>
+  </Style>
+</Styles>
