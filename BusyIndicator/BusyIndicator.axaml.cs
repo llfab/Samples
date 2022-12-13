@@ -11,8 +11,6 @@ using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
-using BitsOfNature.Core.Geometry2D;
-using BitsOfNature.Core.Mathematics;
 
 namespace BitsOfNature.UI.Avalonia.Controls
 {
@@ -21,6 +19,12 @@ namespace BitsOfNature.UI.Avalonia.Controls
     /// </summary>
     public class BusyIndicator : Control
     {
+        #region Constants
+
+        private static IBrush s_backgroundBrush = new SolidColorBrush(0x00000000);
+
+        #endregion
+
         #region Phase Property
         /// <summary>
         ///     Defines the <see cref="Phase"/> property.
@@ -40,19 +44,20 @@ namespace BitsOfNature.UI.Avalonia.Controls
 
         #region Brush Property
         /// <summary>
-        ///     Defines the <see cref="Brush"/> property.
+        ///     Defines the <see cref="Foreground"/> property.
         /// </summary>
-        public static readonly StyledProperty<IBrush> BrushProperty =
-            AvaloniaProperty.Register<BusyIndicator, IBrush>(nameof(Brush), null);
+        public static readonly StyledProperty<IBrush> ForegroundProperty =
+            AvaloniaProperty.Register<BusyIndicator, IBrush>(nameof(Foreground), null);
 
         /// <summary>
-        ///     Gets or sets the foreground brush
+        ///     Gets or sets the foreground
         /// </summary>
-        public IBrush Brush
+        public IBrush Foreground
         {
-            get { return GetValue(BrushProperty); }
-            set { SetValue(BrushProperty, value); }
+            get { return GetValue(ForegroundProperty); }
+            set { SetValue(ForegroundProperty, value); }
         }
+
         #endregion
 
         #region DotCount Property
@@ -95,7 +100,7 @@ namespace BitsOfNature.UI.Avalonia.Controls
         /// </summary>
         static BusyIndicator()
         {
-            AffectsRender<BusyIndicator>(PhaseProperty, BrushProperty, DotCountProperty, IsActiveProperty);
+            AffectsRender<BusyIndicator>(PhaseProperty, ForegroundProperty, DotCountProperty, IsActiveProperty);
         }
         #endregion
 
@@ -109,14 +114,21 @@ namespace BitsOfNature.UI.Avalonia.Controls
 
             double size = Math.Min(Bounds.Width, Bounds.Height);
             double dotRadius = 0.05 * size;
-            Circle2D circle = new Circle2D(0.5 * Bounds.Width, 0.5 * Bounds.Height, 0.5 * size - dotRadius - 1);
+            double circleCenterX = 0.5 * Bounds.Width;
+            double circleCenterY = 0.5 * Bounds.Height;
+            double cirlceRedius = 0.5 * size - dotRadius - 1;
 
             Interval range = new Interval(Phase, Phase + 0.06 * (DotCount - 1));
 
+            // fill with background first to invalidated the control area
+            // context.FillRectangle(s_backgroundBrush, Bounds);
+
+            double x;
+            double y;
             foreach (double t in range.Discretize(DotCount))
             {
-                Point2D p = circle.GetPointForAngle(GetAngleAt(t));
-                context.DrawEllipse(Brush, null, new Point(p.X, p.Y), dotRadius, dotRadius);
+                (x, y) = Utils.GetPointForAngle(GetAngleAt(t), circleCenterX, circleCenterY, cirlceRedius);
+                context.DrawEllipse(Foreground, null, new Point(x, y), dotRadius, dotRadius);
             }
         }
         #endregion
@@ -133,7 +145,7 @@ namespace BitsOfNature.UI.Avalonia.Controls
         /// </returns>
         private double GetAngleAt(double phase)
         {
-            double t = MathUtils.Frac(phase);
+            double t = Utils.Frac(phase);
 
             // The phase value smoothly varies the speed of the dot, so that v(t) = v0 + (4t - 4t²) * (v1 - v0)
             // with (v0, v1) = (min, max) speed
@@ -146,5 +158,18 @@ namespace BitsOfNature.UI.Avalonia.Controls
             return 2 * Math.PI * (Integrate(t) / Integrate(1)) - 0.5 * Math.PI;
         }
         #endregion
+    }
+
+    public static class Utils
+    {
+        public static double Frac(double val)
+        {
+            return val - (int)val;
+        }
+
+        public static (double, double) GetPointForAngle(double angle, double circleCenterX, double circleCenterY, double circleRadius)
+        {
+            return (circleCenterX + circleRadius * Math.Cos(angle), circleCenterY + circleRadius * Math.Sin(angle));
+        }
     }
 }

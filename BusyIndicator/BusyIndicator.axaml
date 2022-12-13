@@ -8,7 +8,7 @@
   </Design.PreviewWith>
 
   <Style Selector="controls|BusyIndicator">
-    <Setter Property="Brush" Value="DodgerBlue"/>
+    <Setter Property="Foreground" Value="DodgerBlue"/>
     <Setter Property="UseLayoutRounding" Value="true"/>
     <Setter Property="ClipToBounds" Value="true"/>
     <Style.Animations>
