@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
 
 	<Nullable>disable</Nullable>
@@ -35,8 +35,11 @@
 
 
 	<ItemGroup>
-		<Folder Include="Models\" />
 		<AvaloniaResource Include="Assets\**" />
+		<AvaloniaXaml Remove="Models\**" />
+		<Compile Remove="Models\**" />
+		<EmbeddedResource Remove="Models\**" />
+		<None Remove="Models\**" />
 		<None Remove=".gitignore" />
 	</ItemGroup>
 
@@ -51,20 +54,37 @@
 		</Content>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="Avalonia" Version="11.0.0-preview4" />
+	  <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.0-preview4" />
+	  <PackageReference Include="Avalonia.Win32" Version="11.0.0-preview4" />
+	</ItemGroup>
+
 
 	<ItemGroup>
-		<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.Desktop\Avalonia.Desktop.csproj" />
-		<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj" />
-		<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.ReactiveUI\Avalonia.ReactiveUI.csproj" />
-		<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.Themes.Fluent\Avalonia.Themes.Fluent.csproj" />
-		<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.Vulkan\Avalonia.Vulkan.csproj" />
+    <!--<ProjectReference Include="..\AvaloniaVulkanFixed/src\Avalonia.Vulkan\Avalonia.Vulkan.csproj" />-->
 		<ProjectReference Include="..\..\Libraries\BitsOfNature.Core\BitsOfNature.Core.csproj" />
+		<ProjectReference Include="..\..\Libraries\BitsOfNature.Interop.Skia\BitsOfNature.Interop.Skia.csproj" />
 	    <ProjectReference Include="..\..\Libraries\BitsOfNature.Rendering.Vulkan\BitsOfNature.Rendering.Vulkan.csproj" />
+	    <ProjectReference Include="..\Avalonia.Vulkan\Avalonia.Vulkan.csproj" />
+	    <ProjectReference Include="..\BitsOfNature.UI.Avalonia\BitsOfNature.UI.Avalonia.csproj" />
 		<!--<ProjectReference Include="..\BitsOfNature.UI.Avalonia.Vulkan\BitsOfNature.UI.Avalonia.Vulkan.csproj" />-->
-		<ProjectReference Include="..\AvaloniaVulkanFixed\BitsOfNature.UI.Avalonia\BitsOfNature.UI.Avalonia.csproj" />
   </ItemGroup>
 
-	<Import Project="..\AvaloniaVulkanFixed\build\ReferenceCoreLibraries.props" />
+  <ItemGroup>
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Include="Avalonia" Version="11.0.0-preview4" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview4" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview4" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview4" />
+    <PackageReference Include="Material.Icons.Avalonia" Version="1.2.0" />
+    <PackageReference Include="XamlNameReferenceGenerator" Version="1.3.4" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.0-preview4" />
+  </ItemGroup>
+
+    <!--
+  <Import Project="..\AvaloniaVulkanFixed\build\ReferenceCoreLibraries.props" />
 	<Import Project="..\AvaloniaVulkanFixed\build\BuildTargets.targets" />
+  -->
 
 </Project>

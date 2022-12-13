@@ -7,7 +7,7 @@
         Title="CrossPlatformAppVk" Width="920" Height="565">
 
     <Window.Resources>
-        <SolidColorBrush x:Key="KinectPurpleBrush" Color="#ff52318f"/>
+      <SolidColorBrush x:Key="KinectPurpleBrush" Color="#ff52318f"/>
 	</Window.Resources>
 
 
@@ -23,12 +23,11 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Row="1" ClipToBounds="True">
 				<Border Name="ControlHostElement"
-                        BorderBrush="{StaticResource KinectPurpleBrush}"
-                        BorderThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                BorderThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid x:Name="Host" Cursor="None">
                         <Rectangle Grid.Column="0" Fill="Black"/>
                         <Grid Background="Green">
-                            <pages:VulkanPageControl x:Name="Vulkan1"/>
+                          <pages:VulkanPageControl x:Name="Vulkan1"/>
                         </Grid>
 					</Grid>
 				</Border>
@@ -77,24 +76,24 @@
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="Mode:" HorizontalAlignment="Left" FontSize="20" FontFamily="Segeo UI" Foreground="White"/>
-                    <RadioButton Grid.Row="1" x:Name="MagBox" GroupName="mode" IsChecked="True" FontSize="12" FontFamily="Segeo UI" Foreground="White" Content="Camera"/>
-                    <RadioButton Grid.Row="1" x:Name="MagBox2" GroupName="mode" IsChecked="False" FontSize="12" FontFamily="Segeo UI" Foreground="White" Content="Magnifier" Margin="90,0,30,0"/>
-                    <Label Grid.Row="3" HorizontalAlignment="Left" Content="Size"  VerticalAlignment="Center" FontSize="14" FontFamily="Segeo UI" Foreground="White" Target="{Binding ElementName=Size}"/>
-                    <Slider Grid.Row="3" x:Name="Size" Minimum="30" Maximum="300" Value="100" Margin="50,-12,30,0" FontSize="12" FontFamily="Segeo UI" Foreground="White"/>
-                    <Label Grid.Row="5" HorizontalAlignment="Left" Content="Scale"  VerticalAlignment="Center" FontSize="14" FontFamily="Segeo UI" Foreground="White" Target="{Binding ElementName=Scale}"/>
+                    <TextBlock Grid.Row="0" Text="Mode:" HorizontalAlignment="Left" FontSize="20" FontFamily="Segeo UI" />
+                    <RadioButton Grid.Row="1" x:Name="MagBox" GroupName="mode" IsChecked="True" FontSize="12" FontFamily="Segeo UI" Content="Camera"/>
+                    <RadioButton Grid.Row="1" x:Name="MagBox2" GroupName="mode" IsChecked="False" FontSize="12" FontFamily="Segeo UI" Content="Magnifier" Margin="90,0,30,0"/>
+                    <Label Grid.Row="3" HorizontalAlignment="Left" Content="Size"  VerticalAlignment="Center" FontSize="14" FontFamily="Segeo UI"  Target="{Binding ElementName=Size}"/>
+                    <Slider Grid.Row="3" x:Name="Size" Minimum="30" Maximum="300" Value="100" Margin="50,-12,30,0" FontSize="12" FontFamily="Segeo UI" />
+                    <Label Grid.Row="5" HorizontalAlignment="Left" Content="Scale"  VerticalAlignment="Center" FontSize="14" FontFamily="Segeo UI"  Target="{Binding ElementName=Scale}"/>
                     <Slider Grid.Row="5" x:Name="Scale" Minimum="1" Value="2" Maximum="5"  Margin="50,-12,30,0"/>
-                    <Button Grid.Row="7" Click="btnRenderLoop">Render Loop</Button>
+                    <Button Grid.Row="7" Click="BtnRenderLoop">Render Loop</Button>
                     <Grid Grid.Row="9" x:Name="host2" Cursor="None">
                         <Rectangle Grid.Column="0" Fill="#FFF059"/>
                         <pages:VulkanPageControl x:Name="Vulkan2"/>
                     </Grid>
-                    <TextBlock Grid.Row="12" Text="Enable second renderer:" HorizontalAlignment="Left" FontSize="16" FontFamily="Segeo UI" Foreground="White"/>
-                    <RadioButton Grid.Row="13" Checked="rbtnAllRenderer" x:Name="AllRenderer" GroupName="rendererSwitch" IsChecked="True" FontSize="12" FontFamily="Segeo UI" Foreground="White" Content="On"/>
-                    <RadioButton Grid.Row="13" Checked="rbtnSingleRenderer" x:Name="SingleRenderer" GroupName="rendererSwitch" IsChecked="False" FontSize="12" FontFamily="Segeo UI" Foreground="White" Content="Off" Margin="70,0"/>
-                    <TextBlock Grid.Row="14" Text="Renderer Device:" HorizontalAlignment="Left" FontSize="16" FontFamily="Segeo UI" Foreground="White"/>
-                    <RadioButton Grid.Row="15" Checked="rbtnSingleDevice" x:Name="SingleDevice" GroupName="deviceSwitch" IsChecked="True" FontSize="12" FontFamily="Segeo UI" Foreground="White" Content="Single"/>
-                    <RadioButton Grid.Row="15" Checked="rbtnSecondDevice" x:Name="SecondDevice" GroupName="deviceSwitch" IsChecked="False" FontSize="12" FontFamily="Segeo UI" Foreground="White" Content="Second" Margin="70,0"/>
+                    <TextBlock Grid.Row="12" Text="Enable second renderer:" HorizontalAlignment="Left" FontSize="16" FontFamily="Segeo UI" />
+                    <RadioButton Grid.Row="13" Checked="RbtnAllRenderer" x:Name="AllRenderer" GroupName="rendererSwitch" IsChecked="True" FontSize="12" FontFamily="Segeo UI" Content="On"/>
+                    <RadioButton Grid.Row="13" Checked="RbtnSingleRenderer" x:Name="SingleRenderer" GroupName="rendererSwitch" IsChecked="False" FontSize="12" FontFamily="Segeo UI" Content="Off" Margin="70,0"/>
+                    <TextBlock Grid.Row="14" Text="Renderer Device:" HorizontalAlignment="Left" FontSize="16" FontFamily="Segeo UI"/>
+                    <RadioButton Grid.Row="15" Checked="RbtnSingleDevice" x:Name="SingleDevice" GroupName="deviceSwitch" IsChecked="True" FontSize="12" FontFamily="Segeo UI" Content="Single"/>
+                    <RadioButton Grid.Row="15" Checked="RbtnSecondDevice" x:Name="SecondDevice" GroupName="deviceSwitch" IsChecked="False" FontSize="12" FontFamily="Segeo UI" Content="Second" Margin="70,0"/>
 
                 </Grid>
 

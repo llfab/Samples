@@ -1,8 +1,5 @@
 ﻿using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.ReactiveUI;
 using Avalonia.Vulkan;
-using Avalonia.Vulkan.Skia;
 using BitsOfNature.Core.Drawing.Interop;
 using BitsOfNature.Core.IO.Serialization;
 using BitsOfNature.Core.IO.Tracing;
@@ -45,21 +42,13 @@ namespace CrossPlatformAppVk
         // Avalonia configuration, don't remove; also used by visual designer.
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
-                .With(new Win32PlatformOptions
-                {
-                    UseWgl = false,
-                    AllowEglInitialization = false
-                })
-                .With(new VulkanOptions()
-                {
-                    UseDebug = true,
-                    PreferDiscreteGpu = true
-                })
+                .UsePlatformDetect()
+                .With(new Win32PlatformOptions {AllowEglInitialization = false})
+                .With(new VulkanOptions() {UseDebug = true, PreferDiscreteGpu = true})
                 .UseVulkan()
                 .UseSkia()
-                .UsePlatformDetect()
                 .LogToTrace()
-                .UseReactiveUI();
+                .LogToTrace();
 
 
 

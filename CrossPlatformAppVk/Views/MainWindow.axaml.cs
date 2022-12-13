@@ -9,13 +9,11 @@ using Avalonia.Rendering;
 using Avalonia.Threading;
 using BitsOfNature.Core.Geometry3D;
 using BitsOfNature.Core.IO.Tracing;
+using BitsOfNature.Core.Measurements;
 using BitsOfNature.Rendering.Vulkan.Engine;
-using BitsOfNature.Rendering.Vulkan.Utils;
 
 namespace CrossPlatformAppVk.Views
 {
-
-
     public partial class MainWindow : Window
     {
         private DateTime _start;
@@ -95,7 +93,7 @@ namespace CrossPlatformAppVk.Views
             this._magImage.Width = this._magSize * MagImageScale;
             this._magImage.IsVisible = false;
 
-            //AvaloniaLocator.CurrentMutable.Bind<IRenderTimer>().ToConstant(new DefaultRenderTimer(90));
+            AvaloniaLocator.CurrentMutable.Bind<IRenderTimer>().ToConstant(new DefaultRenderTimer(60));
             DefaultRenderTimer defaultRenderTimer = AvaloniaLocator.CurrentMutable.GetService<IRenderTimer>() as DefaultRenderTimer;
             TraceApplication.Trace.Info("MainWindow: Rendertime is set to {0} fps", defaultRenderTimer.FramesPerSecond);
         }
@@ -117,9 +115,6 @@ namespace CrossPlatformAppVk.Views
                     this._magEllipse.IsVisible = true;
                     this._magImage.IsVisible = true;
                     this._magImage.InvalidateVisual();
-                    double magViewboxSize = this._magSize / this._magScale;
-                    // @todo:(oh) Currently not working
-                   // this.magBrush.Viewbox = new Rect(point.X - (.5 * magViewboxSize), point.Y - (.5 * magViewboxSize), magViewboxSize, magViewboxSize);
                 }
                 else
                 {
@@ -135,8 +130,6 @@ namespace CrossPlatformAppVk.Views
 
 
         }
-
-
         private void MagBox_Checked(object sender, RoutedEventArgs e)
         {
             this._magnify = false;
@@ -150,7 +143,6 @@ namespace CrossPlatformAppVk.Views
         {
             this._magnify = true;
         }
-
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
@@ -195,7 +187,7 @@ namespace CrossPlatformAppVk.Views
         }
 
 
-        private void btnRenderLoop(object sender, RoutedEventArgs e)
+        private void BtnRenderLoop(object sender, RoutedEventArgs e)
         {
             if (this._camera1 == null && this._camera2 == null)
             {
@@ -214,16 +206,16 @@ namespace CrossPlatformAppVk.Views
             renderTimer.Start();
         }
 
-        private void rbtnAllRenderer(object sender, RoutedEventArgs e)
+        private void RbtnAllRenderer(object sender, RoutedEventArgs e)
         {
             _secondaryRendererEnabled = true;
         }
-        private void rbtnSingleRenderer(object sender, RoutedEventArgs e)
+        private void RbtnSingleRenderer(object sender, RoutedEventArgs e)
         {
             _secondaryRendererEnabled = false;
         }
 
-        private void rbtnSingleDevice(object sender, RoutedEventArgs e)
+        private void RbtnSingleDevice(object sender, RoutedEventArgs e)
         {
             if (this._useSecondaryDevice)
             {
@@ -232,7 +224,7 @@ namespace CrossPlatformAppVk.Views
                 this._vulkan2.UseSecondaryDevice = this._useSecondaryDevice;
             }
         }
-        private void rbtnSecondDevice(object sender, RoutedEventArgs e)
+        private void RbtnSecondDevice(object sender, RoutedEventArgs e)
         {
             if (!this._useSecondaryDevice)
             {

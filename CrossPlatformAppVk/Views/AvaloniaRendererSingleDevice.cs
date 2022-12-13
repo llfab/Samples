@@ -34,11 +34,11 @@ namespace CrossPlatformAppVk.Views
 
             Trace trace = Trace.ForType<BitsVulkan.DeviceBuilder>();
 
-            trace.Info("{0}(): Using physical device[{1}] with driver version[{2}]", trace.CallSite(), physicalDevice.DeviceName,
+            trace.Info("{0}(): Using physical device[{1}] with driver version[{2}]", trace.Level, physicalDevice.DeviceName,
                 physicalDevice.DriverVersion.VersionStringMajorMinor);
 
             HashSet<string> availableExtensions = physicalDevice.GetExtensionNames().ToHashSet();
-            trace.Debug("{0}(): Extensions available from physical device[{1}]", trace.CallSite(),
+            trace.Debug("{0}(): Extensions available from physical device[{1}]", trace.Level,
                 string.Join(", ", availableExtensions));
 
 

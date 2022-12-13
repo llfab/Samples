@@ -15,52 +15,48 @@ namespace CrossPlatformAppVk.Views
 {
     public class TestRenderer
     {
-        private bool isInitialized;
-        private RenderingContext context;
-        private RenderableMesh boneMeshData;
-        private ReflectionMap reflectionMap;
+        private bool _isInitialized;
+        private RenderingContext _context;
+        private RenderableMesh _boneMeshData;
+        private ReflectionMap _reflectionMap;
     
-        public TestRenderer()
-        {
-        }
-        
         public TestRenderer(RenderingContext context)
         {
             SetContext(context);
         }
 
-        public void SetContext(RenderingContext context)
+        private void SetContext(RenderingContext context)
         {
-            this.context = context;
+            this._context = context;
         }
         
         public void Render(RenderTarget renderTarget, SceneCamera camera, GridRect viewport)
         {
-            if (reflectionMap == null)
+            if (_reflectionMap == null)
             {
-                reflectionMap = ReflectionMap.LoadDefault();
+                _reflectionMap = ReflectionMap.LoadDefault();
             }
             DirectionalLight[] lights = new[] { new DirectionalLight(camera.ViewDirection) };
 
-            context.Begin(renderTarget, Argb.Black, viewport);
-            GraphicsRenderPass pass = context.UseGraphicsPass(camera, lights, reflectionMap);
+            _context.Begin(renderTarget, Argb.Black, viewport);
+            GraphicsRenderPass pass = _context.UseGraphicsPass(camera, lights, _reflectionMap);
 
-            if (!isInitialized) { Init(pass); }
+            if (!_isInitialized) { Init(pass); }
 
             RenderScene(pass);
 
-            context.End();
+            _context.End();
         }
-        
-        public void Init(GraphicsRenderPass pass)
+
+        private void Init(GraphicsRenderPass pass)
         {
             Mesh3D mesh = MeshIO.Load(AppDomain.CurrentDomain.BaseDirectory + "_Sandbox/Pelvis.mbs");
             mesh.TransformBy(Pose3D.CreateRotation(CartesianAxis.X, 0.5 * Math.PI));
             mesh.RepositionVerticesAroundCenter();
-            boneMeshData = new RenderableMesh(mesh, MemoryUsageHint.Gpu);
-            boneMeshData.Attributes.Material = MaterialUtils.CreateBoneMaterial();
+            _boneMeshData = new RenderableMesh(mesh, MemoryUsageHint.Gpu);
+            _boneMeshData.Attributes.Material = MaterialUtils.CreateBoneMaterial();
 
-            isInitialized = true;
+            _isInitialized = true;
         }
         
         private void RenderScene(GraphicsRenderPass pass)
@@ -70,7 +66,7 @@ namespace CrossPlatformAppVk.Views
 
             MeshRenderer mrender = new MeshRenderer(pass);
             Matrix matrix = HMatrix3D.CreateIdentity();
-            MeshRendererItem item = boneMeshData.Prepare(pass, matrix, RenderState.Opaque(), true, 0)[0];
+            MeshRendererItem item = _boneMeshData.Prepare(pass, matrix, RenderState.Opaque(), true, 0)[0];
 
             mrender.Add(item);
             mrender.Render(ItemTransparencyGroup.Opaque);

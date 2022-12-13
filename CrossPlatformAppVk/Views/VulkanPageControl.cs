@@ -1,28 +1,22 @@
-﻿using Avalonia.Controls;
+﻿using System;
+using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Vulkan.Controls;
 using Avalonia.Vulkan;
 using Avalonia;
-using BitsOfNature.Core;
 using BitsOfNature.Core.Geometry3D;
 using BitsOfNature.Core.Grid;
 using BitsOfNature.Core.Utils;
 using BitsOfNature.Rendering.Vulkan.Engine;
-using BitsOfNature.Rendering.Vulkan.LowLevel;
 using BitsOfNature.UI.Avalonia.Input;
 using BitsOfNature.UI.Avalonia.Manipulation;
 using BitsOfNature.UI.Avalonia.Rendering;
-using BitsVulkan = BitsOfNature.Rendering.Vulkan.LowLevel;
-using BitsVulkanEngine = BitsOfNature.Rendering.Vulkan.Engine;
 using BitsOfNature.Core.IO.Tracing;
-using System;
 
 namespace CrossPlatformAppVk.Views
 {
     public class VulkanPageControl : VulkanControlBase, ISceneViewerControl
     {
-        private SceneCamera _camera;
-        private readonly MouseAdapter _mouseAdapter;
         private AvaloniaRendererBase _renderer;
         private bool _useSecondaryDevice;
 
@@ -40,11 +34,8 @@ namespace CrossPlatformAppVk.Views
             }
         }
         private VulkanPlatformInterface _platformInterface;
-        public SceneCamera Camera
-        {
-            get { return _camera; }
-            set { _camera = value; }
-        }
+        public SceneCamera Camera { get; set; }
+
         public GridRect Viewport
         {
             get
@@ -55,13 +46,13 @@ namespace CrossPlatformAppVk.Views
 
         private string _info;
 
-        public static readonly DirectProperty<VulkanPageControl, string> InfoProperty =
+        private static readonly DirectProperty<VulkanPageControl, string> s_infoProperty =
             AvaloniaProperty.RegisterDirect<VulkanPageControl, string>("Info", o => o.Info, (o, v) => o.Info = v);
 
         public string Info
         {
             get => _info;
-            private set => SetAndRaise(InfoProperty, ref _info, value);
+            private set => SetAndRaise(s_infoProperty, ref _info, value);
         }
 
         static VulkanPageControl()
@@ -84,12 +75,7 @@ namespace CrossPlatformAppVk.Views
                     SwitchToSingleDevice(platformInterface, info);
                 }
             }
-            this._renderer.Render(this._camera, new Int2(info.PixelSize.Width, info.PixelSize.Height));
-        }
-
-        protected unsafe override void OnVulkanDeinit(VulkanPlatformInterface platformInterface, VulkanImageInfo info)
-        {
-            base.OnVulkanDeinit(platformInterface, info);
+            this._renderer.Render(this.Camera, new Int2(info.PixelSize.Width, info.PixelSize.Height));
         }
 
 
@@ -107,12 +93,8 @@ namespace CrossPlatformAppVk.Views
                 SwitchToSingleDevice(platformInterface, info);
             }
 
-            _camera = new SceneCamera();
-            _camera.LookAtOrtho(Box3D.CreateCenterBox(new Point3D(0, 0, 0), 180, 120, 2048));
-
-            var deviceName = platformInterface.PhysicalDevice.DeviceName;
-            var version = platformInterface.PhysicalDevice.ApiVersion;
-
+            Camera = new SceneCamera();
+            Camera.LookAtOrtho(Box3D.CreateCenterBox(new Point3D(0, 0, 0), 180, 120, 2048));
         }
 
         private void SwitchToSingleDevice(VulkanPlatformInterface platformInterface, VulkanImageInfo info)
@@ -130,8 +112,8 @@ namespace CrossPlatformAppVk.Views
                 };
                 this._renderer = new AvaloniaRendererSingleDevice(createInfo);
 
-                var deviceName = this._platformInterface.PhysicalDevice.DeviceName;
-                var version = this._platformInterface.PhysicalDevice.ApiVersion;
+                string deviceName = this._platformInterface.PhysicalDevice.DeviceName;
+                Version version = this._platformInterface.PhysicalDevice.ApiVersion;
                 Info = $"Renderer: {deviceName} Version: {version.Major}.{version.Minor}.{version.Revision}, Device usage: single (Avalonia device)";
 
             }
@@ -151,8 +133,8 @@ namespace CrossPlatformAppVk.Views
                 };
                 this._renderer = new AvaloniaRendererSecondDevice(createInfo);
 
-                var deviceName = this._platformInterface.PhysicalDevice.DeviceName;
-                var version = this._platformInterface.PhysicalDevice.ApiVersion;
+                string deviceName = this._platformInterface.PhysicalDevice.DeviceName;
+                Version version = this._platformInterface.PhysicalDevice.ApiVersion;
                 Info = $"Renderer: {deviceName} Version: {version.Major}.{version.Minor}.{version.Revision}, Device usage: second (Bits device)";
             }
         }
@@ -161,9 +143,9 @@ namespace CrossPlatformAppVk.Views
         {
             if (!Design.IsDesignMode)
             {
-                _mouseAdapter = new MouseAdapter(this);
-                _mouseAdapter.Controllers.Add(new CameraMouseController(this, KeyModifiers.Control));
-                _mouseAdapter.Activate();
+                MouseAdapter mouseAdapter = new(this);
+                mouseAdapter.Controllers.Add(new CameraMouseController(this, KeyModifiers.Control));
+                mouseAdapter.Activate();
             }
         }
 
