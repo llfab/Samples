@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <DisableWinExeOutputInference>true</DisableWinExeOutputInference>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!--<GenerateAssemblyInfo>false</GenerateAssemblyInfo>-->
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NoWarn>1701;1702;CS8618;CS8625</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <NoWarn>1701;1702;CS8618;CS8625</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+    <EmbeddedResource Include="EmbeddedResources\*.gif" />
+    <None Remove=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+	<EmbeddedResource Include="triangle.fs.spv" />
+	<EmbeddedResource Include="triangle.vs.spv" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.999-cibuild0015264-beta" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.999-cibuild0015264-beta" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.999-cibuild0015264-beta" />
+    <!--<PackageReference Include="Avalonia.ReactiveUI" Version="0.10.12" />-->
+    <PackageReference Include="LibVLCSharp.Avalonia" Version="3.6.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Condition="$([MSBuild]::IsOsPlatform('Windows'))" Include="VideoLAN.LibVLC.Windows" Version="3.0.16" />
+    <PackageReference Condition="$([MSBuild]::IsOsPlatform('OSX'))" Include="VideoLAN.LibVLC.Mac" Version="3.1.3.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\BitsOfNature.Core\BitsOfNature.Core.csproj" />
+    <ProjectReference Include="..\..\Libraries\BitsOfNature.Interop.Skia\BitsOfNature.Interop.Skia.csproj" />
+    <ProjectReference Include="..\BitsOfNature.UI.Avalonia\BitsOfNature.UI.Avalonia.csproj" />
+    <ProjectReference Include="..\CrossPlatformAppIncludes\AvaloniaGif\AvaloniaGif.csproj" />
+    <ProjectReference Include="..\CrossPlatformAppIncludes\Stryker.Adapt.FluoroImageAcquisition\Stryker.Adapt.FluoroImageAcquisition.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaXaml Update="Assets\Styles\CommonStyles.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaXaml>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\VideoView.axaml.cs">
+      <DependentUpon>VideoView.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="CrossPlatformApp.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="vk_layer_settings.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

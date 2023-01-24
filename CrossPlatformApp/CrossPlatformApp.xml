@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<s:SerializedData s:ContentType="CrossPlatformAppConfiguration" s:Version="1.0" xmlns:s="http://www.ortho.med.tu-muenchen.de/xml/medina/serialization">
+    <CrossPlatformAppConfiguration s:Name="CrossPlatformAppConfiguration" UseSharedTexture="True" ShowGraphicsAdapterInfo="True" DebugLayerEnabled="False" >
+        <FluoroImageAcquisitionConfiguration s:Name="FluoroImageAcquisition" Enabled="True" EngineServerIpAddress="0.0.0.0" EngineServerPort="8810"
+                                            ImageAcquisitionServerUri="http://0.0.0.0:9001/ImageAcquisition"  />
+        <ProNavigationConfiguration s:Name="ProNavigation" Enabled="True" NavigationServerUri="http://0.0.0.0:9001/ProNavigation" />
+    </CrossPlatformAppConfiguration>
+</s:SerializedData>

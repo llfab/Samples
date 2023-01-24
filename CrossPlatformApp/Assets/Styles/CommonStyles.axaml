@@ -1,0 +1,47 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:System="clr-namespace:System;assembly=mscorlib">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <!-- Add Controls for Previewer Here -->
+    </Border>
+  </Design.PreviewWith>
+
+  <!-- Add Styles Here -->
+  <Styles.Resources>
+    
+    <SolidColorBrush x:Key="ControlBackground" Color="Black" />
+    <SolidColorBrush x:Key="ToolbarBackground" Color="#202020" />
+    <SolidColorBrush x:Key="ImageBackground" Color="Black" />
+    <SolidColorBrush x:Key="GridBorderColor" Color="#808080" />
+    <SolidColorBrush x:Key="ToggledForegroundColor" Color="#569CD6" />
+
+    <FontFamily x:Key="DefaultButtonFontName" >Segoe UI</FontFamily>
+    <System:Double x:Key="DefaultButtonFontSize" >28</System:Double>
+    <System:Double x:Key="DefaultButtonWidth" >320</System:Double>
+    <System:Double x:Key="DefaultButtonHeight" >56</System:Double>
+
+    <System:Double x:Key="LargeButtonWidth" >400</System:Double>
+    <System:Double x:Key="ToolbarMinSize">5</System:Double>
+    <System:Double x:Key="ToolbarMaxSize">70</System:Double>
+
+    <System:Double x:Key="TextButtonFontSize" >24</System:Double>
+    <System:Double x:Key="HeaderFontSize" >32</System:Double>
+    <System:Double x:Key="DefaultTextFontSize" >18</System:Double>
+
+    <System:String x:Key="Cross">&#x2A09;</System:String>
+    <System:String x:Key="Left">&#x23F4;</System:String>
+    <System:String x:Key="Right">&#x23F5;</System:String>
+    <System:String x:Key="Up">&#x23F6;</System:String>
+    <System:String x:Key="Down">&#x23F7;</System:String>
+    <System:String x:Key="Pause">&#x23F8;</System:String>
+    <System:String x:Key="LeftPause">&#x23F4;&#x23F8;</System:String>
+    <System:String x:Key="SkipBack">&#x23EE;</System:String>
+    <System:String x:Key="Undo">&#x21BA;</System:String>
+    <System:String x:Key="Redo">&#x21BB;</System:String>
+    <System:String x:Key="RightArrowCrossed">&#x21CF;</System:String>
+    <System:String x:Key="RightArrow">&#x22D2;</System:String>
+
+  </Styles.Resources>
+
+</Styles>

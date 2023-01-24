@@ -1,0 +1,132 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:CrossPlatformApp.ViewModels"
+             xmlns:uc="using:CrossPlatformApp.UserControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="550"
+             x:Class="CrossPlatformApp.Views.VideoView"
+             >
+
+    <Design.DataContext>
+        <vm:VideoViewModel/>
+    </Design.DataContext>
+
+    <UserControl.Styles>
+        <StyleInclude Source="/Assets/Styles/CommonStyles.axaml" />
+        <!-- Button -->
+        <Style Selector="Button.tb">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <!--<Setter Property="CornerRadius" Value="0 "/>-->
+        </Style>
+        <Style Selector="Button.tb /template/ ContentPresenter">
+            <Setter Property="TextBlock.FontSize" Value="10" />
+        </Style>
+        <!--Button hover-->
+        <Style Selector="Button.tb:pointerover">
+            <Setter Property="Foreground" Value="White"/>
+            <!--<Setter Property="CornerRadius" Value="0" />-->
+        </Style>
+        <Style Selector="Button.tb:pointerover /template/ ContentPresenter">
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="TextBlock.Foreground" Value="White" />
+        </Style>
+        <!--Button clicked-->
+        <Style Selector="Button.tb:pressed">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style Selector="Button.tb:pressed /template/ ContentPresenter">
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="TextBlock.Foreground" Value="White" />
+        </Style>
+
+        <!-- Toogle Button -->
+        <Style Selector="ToggleButton.PelvisToggleButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <!--<Setter Property="CornerRadius" Value="0 "/>-->
+        </Style>
+        <Style Selector="ToggleButton.PelvisToggleButton /template/ ContentPresenter">
+            <Setter Property="TextBlock.FontSize" Value="10" />
+        </Style>
+        <!--Toogle Button hover-->
+        <Style Selector="ToggleButton.PelvisToggleButton:pointerover">
+            <Setter Property="Foreground" Value="White"/>
+            <!--<Setter Property="CornerRadius" Value="0" />-->
+        </Style>
+        <Style Selector="ToggleButton.PelvisToggleButton:pointerover /template/ ContentPresenter">
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="TextBlock.Foreground" Value="White" />
+        </Style>
+        <!--Toogle Button clicked-->
+        <Style Selector="ToggleButton.PelvisToggleButton:pressed">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style Selector="ToggleButton.PelvisToggleButton:pressed /template/ ContentPresenter">
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="TextBlock.Foreground" Value="White" />
+            <Setter Property="TextBlock.FontSize" Value="10" />
+        </Style>
+        <!--Toogle Button toggled-->
+        <Style Selector="ToggleButton.PelvisToggleButton:checked">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#0E97DD"/>
+            <Setter Property="BorderBrush" Value="#0E97DD"/>
+            <!--<Setter Property="BorderThickness" Value="3"/>-->
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <!--<Setter Property="CornerRadius" Value="0 "/>-->
+        </Style>
+        <Style Selector="ToggleButton.PelvisToggleButton:checked /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="#0E97DD" />
+            <Setter Property="TextBlock.Foreground" Value="#0E97DD" />
+            <Setter Property="TextBlock.FontWeight" Value="Bold" />
+            <Setter Property="TextBlock.FontSize" Value="10" />
+        </Style>
+    </UserControl.Styles>
+
+    <Grid x:Name="Stack" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <!--<RowDefinition Height="Auto" />-->
+        </Grid.RowDefinitions>
+        <Grid x:Name="Toolbar" Grid.Row="0" RowDefinitions="*" ColumnDefinitions="*" >
+            <Grid.Styles>
+                <Style Selector="Grid#Toolbar">
+                    <Setter Property="Background" Value="{StaticResource ToolbarBackground}" />
+                    <Setter Property="Height" Value="{StaticResource ToolbarMinSize}" />
+                </Style>
+                <Style Selector="Grid#Toolbar:pointerover">
+                    <Setter Property="Background" Value="{StaticResource ToolbarBackground}" />
+                    <Setter Property="Height" Value="{StaticResource ToolbarMaxSize}" />
+                </Style>
+            </Grid.Styles>
+            <Grid Grid.Row="0" RowDefinitions="0,*">
+                <Grid Grid.Row="0" ></Grid>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="10" Margin="10,0,0,0">
+                    <Button Classes="tb" Width="100" Height="25" Margin="0,15,0,0">Ref Body</Button>
+                    <Button Classes="tb" Width="100" Height="25" Margin="0,15,0,0">Awl</Button>
+                    <Button Classes="tb" Width="100" Height="25" Margin="0,15,0,0">Bone</Button>
+                    <ToggleButton Classes="PelvisToggleButton" Width="100" Height="25" Margin="0,15,0,0" IsChecked="{Binding VideoFrameUpdateEnabled}">Enabled</ToggleButton>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" ColumnDefinitions="*" Background="{StaticResource ImageBackground}" >
+            <uc:VideoImageControl Name="VideoImageDisplay" Grid.Column="0" ImageSource="{Binding VideoFrame}" />
+        </Grid>
+        <!--<Grid Grid.Row="2" ColumnDefinitions="*">
+      <TextBlock Grid.Column="0" Text="{Binding Text}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Height="30" />
+    </Grid>-->
+    </Grid>
+</UserControl>

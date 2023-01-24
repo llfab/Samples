@@ -1,0 +1,102 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:CrossPlatformApp.ViewModels"
+        xmlns:v="using:CrossPlatformApp.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="1400" Height="960"
+        x:Class="CrossPlatformApp.Views.PelvisLiveView"
+        Title="PIXr 3D Pelvis SI Live - not for clinical use">
+
+    <Design.DataContext>
+        <vm:PelvisLiveViewModel/>
+    </Design.DataContext>
+
+    <Window.Styles>
+        <StyleInclude Source="/Assets/Styles/CommonStyles.axaml" />
+        <!-- Toogle Button -->
+        <Style Selector="ToggleButton.PelvisToggleButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <!--<Setter Property="CornerRadius" Value="0 "/>-->
+        </Style>
+        <!--Toogle Button hover-->
+        <Style Selector="ToggleButton.PelvisToggleButton:pointerover">
+            <Setter Property="Foreground" Value="White"/>
+            <!--<Setter Property="CornerRadius" Value="0" />-->
+        </Style>
+        <Style Selector="ToggleButton.PelvisToggleButton:pointerover /template/ ContentPresenter">
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="TextBlock.Foreground" Value="White" />
+        </Style>
+        <!--Toogle Button clicked-->
+        <Style Selector="ToggleButton.PelvisToggleButton:pressed">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style Selector="ToggleButton.PelvisToggleButton:pressed /template/ ContentPresenter">
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="TextBlock.Foreground" Value="White" />
+        </Style>
+        <!--Toogle Button toggled-->
+        <Style Selector="ToggleButton.PelvisToggleButton:checked">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#0E97DD"/>
+            <Setter Property="BorderBrush" Value="#0E97DD"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <!--<Setter Property="CornerRadius" Value="0 "/>-->
+        </Style>
+        <Style Selector="ToggleButton.PelvisToggleButton:checked /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="#0E97DD" />
+            <Setter Property="TextBlock.Foreground" Value="#0E97DD" />
+            <Setter Property="TextBlock.FontWeight" Value="Bold" />
+        </Style>
+    </Window.Styles>
+
+    <Grid Name="ViewContent" RowDefinitions="50,2,*">
+        <!-- Toolbar -->
+        <Grid Grid.Row="0" RowDefinitions="*" Background="{StaticResource ToolbarBackground}">
+
+            <Grid Grid.Row="0" ColumnDefinitions="*,350,*" x:Name="TargetingToolBar" Margin="0,0,0,0" >
+                <StackPanel Background="Transparent" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+                    <ToggleButton Classes="PelvisToggleButton" Width="100" Height="40" IsChecked="{Binding IsAll}">All</ToggleButton>
+                    <ToggleButton Classes="PelvisToggleButton" Width="100" Height="40" IsChecked="{Binding IsLateral}">Lateral</ToggleButton>
+                    <ToggleButton Classes="PelvisToggleButton" Width="100" Height="40" IsChecked="{Binding IsInletOutlet}">Inlet / Outlet</ToggleButton>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Background="DarkGray" />
+        <!--<Grid Classes="quad" Background="Black" Grid.Row="2" ColumnDefinitions="*,2,*" RowDefinitions="*,2,*">-->
+        <Grid Classes="quad" Background="Black" Grid.Row="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{Binding TopRowHeight}" />
+                <RowDefinition Height="{Binding BorderRowHeight}" />
+                <RowDefinition Height="{Binding BottomRowHeight}" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding LeftColumnWidth}" />
+                <ColumnDefinition Width="{Binding BorderColumnWidth}" />
+                <ColumnDefinition Width="{Binding RightColumnWidth}" />
+            </Grid.ColumnDefinitions>
+
+            <v:XrayView Grid.Row="0" Grid.Column="0" DataContext="{Binding XrayModel1}" />
+            <Grid Grid.Row="0" Grid.Column="1" Background="DarkGray"  />
+            <v:VideoView Grid.Row="0" Grid.Column="2" DataContext="{Binding VideoModel2}" />
+            <Grid Grid.Row="1" Grid.Column="0" Background="DarkGray" />
+            <Grid Grid.Row="1" Grid.Column="1" Background="DarkGray" />
+            <Grid Grid.Row="1" Grid.Column="2" Background="DarkGray" />
+            <v:XrayView Grid.Row="2" Grid.Column="0" DataContext="{Binding XrayModel3}" />
+            <Grid Grid.Row="2" Grid.Column="1" Background="DarkGray" />
+            <v:XrayView Grid.Row="2" Grid.Column="2" DataContext="{Binding XrayModel4}" />
+        </Grid>
+    </Grid>
+</Window>

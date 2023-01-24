@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<s:SerializedData s:ContentType="LocalizationData" s:Version="1.0" xmlns:s="http://www.ortho.med.tu-muenchen.de/xml/medina/serialization">
+  <LocalizationData s:Name="LocalizationData" Language="de-DE">
+    <s:Array s:Name="Localizations" s:ElementType="LocalizationText" s:Size="3" >
+      <LocalizationText ContextKey="Language" Translation="Deutsch" />
+      <LocalizationText ContextKey="HelloWorld" Translation="Hallo Welt!" />
+      <LocalizationText ContextKey="Second/HelloWorld" Translation="Hallo zweite Welt!" />
+    </s:Array>
+  </LocalizationData>
+</s:SerializedData>

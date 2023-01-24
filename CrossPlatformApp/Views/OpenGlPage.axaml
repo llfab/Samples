@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:v="using:CrossPlatformApp.Views"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CrossPlatformApp.Views.OpenGlPage">
+    <Grid>
+        <v:OpenGlPageControl Name="GL"/>
+        <StackPanel>
+            <TextBlock Text="{Binding #GL.Info}" IsVisible="{Binding #GL.InfoVisible}"/>
+        </StackPanel>
+        <Grid ColumnDefinitions="*,Auto" Margin="20">
+            <!--<StackPanel Grid.Column="1" MinWidth="300">
+                <TextBlock>Yaw</TextBlock>
+                <Slider Value="{Binding Yaw, Mode=TwoWay, ElementName=GL}" Maximum="10"/>
+                <TextBlock>Pitch</TextBlock>
+                <Slider Value="{Binding Pitch, Mode=TwoWay, ElementName=GL}" Maximum="10"/>
+                <TextBlock>Roll</TextBlock>
+                <Slider Value="{Binding Roll, Mode=TwoWay, ElementName=GL}" Maximum="10"/>
+            </StackPanel>-->
+        </Grid>
+    </Grid>
+</UserControl>
