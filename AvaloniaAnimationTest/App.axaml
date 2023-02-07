@@ -1,0 +1,10 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             RequestedThemeVariant="Dark"
+             x:Class="AvaloniaAnimationTest.App">
+  <Application.Styles>
+    <!-- RequestedThemeVariant="Dark" -->
+    <FluentTheme/>
+    <!--<FluentTheme Mode="Dark"/>-->
+  </Application.Styles>
+</Application>
