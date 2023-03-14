@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:AvaloniaApplication10"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication10.MainWindow"
+        Title="AvaloniaApplication10">
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Window.Resources>
+        <vm:WorkflowStateBoolConverter x:Key="workflowStateConverter" />
+    </Window.Resources>
+
+    <Grid>
+        <ToggleButton HorizontalAlignment="Center"
+                      IsChecked="{Binding CurrentWorkflowState, Mode=TwoWay, Converter={StaticResource workflowStateConverter}, ConverterParameter=CartridgeSelection}">
+            Button
+        </ToggleButton>
+    </Grid>
+</Window>
