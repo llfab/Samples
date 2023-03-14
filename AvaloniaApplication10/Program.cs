@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using System;
+using System.Diagnostics;
 
 namespace AvaloniaApplication10
 {
@@ -20,7 +21,7 @@ namespace AvaloniaApplication10
             }
             catch (Exception ex)
             {
-                Console.WriteLine(string.Format("Error\n{0}", ex));
+                Trace.WriteLine(string.Format("Error\n{0}", ex));
                 throw;
             }
         }
