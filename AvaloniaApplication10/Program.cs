@@ -21,6 +21,7 @@ namespace AvaloniaApplication10
             catch (Exception ex)
             {
                 Console.WriteLine(string.Format("Error\n{0}", ex));
+                throw;
             }
         }
 
