@@ -11,5 +11,10 @@
           ClipToBounds="True"
           Height="8"
           HorizontalAlignment="Stretch">
+    <Border Name="innerBorder"
+            Background="Green"
+            CornerRadius="4"
+            Width="200"
+            HorizontalAlignment="Left"/>
   </Border>
 </UserControl>

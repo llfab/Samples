@@ -25,6 +25,7 @@ namespace AvaloniaAnimationTest
         {
             InitializeComponent();
             //AttachAnimatedSolidVisual(this.FindControl<Control>("animatedBorder")!);
+            AttachOffsetAnimation(this.FindControl<Control>("innerBorder")!);
             AttachCustomVisual(this.FindControl<Control>("animatedBorderHost")!);
         }
 
@@ -61,6 +62,30 @@ namespace AvaloniaAnimationTest
             {
                 if (a.Property == BoundsProperty)
                     Update();
+            };
+        }
+
+        private void AttachOffsetAnimation(Visual v)
+        {
+            v.AttachedToVisualTree += delegate
+            {
+                // get the current visual as a CompositionVisual first
+                CompositionVisual visual = ElementComposition.GetElementVisual(v);
+                if (visual == null)
+                    return;
+
+                // then get the compositor if that CompositionVisual
+                Compositor compositor = visual.Compositor;
+                if (compositor == null)
+                    return;
+
+                Vector3KeyFrameAnimation translation = compositor.CreateVector3KeyFrameAnimation();
+                translation.Duration = TimeSpan.FromSeconds(1.5);
+                translation.IterationBehavior = AnimationIterationBehavior.Forever;
+                translation.InsertKeyFrame(0, new Vector3(1, 0, 0));
+                translation.InsertKeyFrame(1, new Vector3(1800, 0, 0));
+
+                visual.StartAnimation("Offset", translation);
             };
         }
 
