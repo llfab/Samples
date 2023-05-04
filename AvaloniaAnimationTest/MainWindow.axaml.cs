@@ -11,6 +11,18 @@ namespace AvaloniaAnimationTest
         public MainWindow()
         {
             InitializeComponent();
+
+            _tcc.Content = "My first content";
+        }
+
+        private void OnCheckedTcc(object sender, RoutedEventArgs e)
+        {
+            _tcc.Content = "My first content";
+        }
+
+        private void OnUncheckedTcc(object sender, RoutedEventArgs e)
+        {
+            _tcc.Content = "My second much looooonger content";
         }
 
         private void OnChecked(object sender, RoutedEventArgs e)

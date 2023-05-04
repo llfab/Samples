@@ -6,46 +6,62 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AvaloniaAnimationTest.MainWindow"
         Title="AvaloniaAnimationTest">
-  <Window.Styles>
-  
-    <Style Selector="Panel.animGrid">
-      <Setter Property="Background" Value="Green"/>
-      <Setter Property="Transitions">
-        <Transitions>
-          <DoubleTransition Property="Width" Duration="0:0:2.4" />
-        </Transitions>
-      </Setter>
-    </Style>
+    <Window.Styles>
 
-    <Style Selector="Panel.animGrid.useRenderTransform">  <!-- use the extra class for a separate style -->
-      <Setter Property="Background" Value="Green"/>
-      <Setter Property="Transitions">
-        <Transitions>
-          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:2.4"/>
-        </Transitions>
-      </Setter>
-      <Setter Property="RenderTransformOrigin" Value="0.0,0.0"/>
-      <Setter Property="RenderTransform" Value="scaleX(1)"/>
+        <Style Selector="Panel.animGrid">
+            <Setter Property="Background" Value="Green"/>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Width" Duration="0:0:2.4" />
+                </Transitions>
+            </Setter>
+        </Style>
 
-      <Style Selector="^.large">
-        <Setter Property="RenderTransform" Value="scaleX(3)" />
-      </Style>
-    </Style>
+        <Style Selector="Panel.animGrid.useRenderTransform">
+            <!-- use the extra class for a separate style -->
+            <Setter Property="Background" Value="Green"/>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:2.4"/>
+                </Transitions>
+            </Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.0,0.0"/>
+            <Setter Property="RenderTransform" Value="scaleX(1)"/>
 
-  </Window.Styles>
-  
-  <StackPanel Orientation="Vertical" Spacing="8" Margin="8">
-    <CheckBox x:Name="_useRenderTransformCheckBox" Name="useRenderTransformCheckBox" IsChecked="False">Use Render Transform</CheckBox>
-    <ToggleButton Checked="OnChecked" Unchecked="OnUnchecked">Animation</ToggleButton>
-    <Panel x:Name="_animGrid" Width="200" HorizontalAlignment="Left" Height="200"
-           Classes="animGrid"
-           Classes.useRenderTransform="{Binding #useRenderTransformCheckBox.IsChecked}">  <!-- assign an extra class based on the check box state -->
+            <Style Selector="^.large">
+                <Setter Property="RenderTransform" Value="scaleX(3)" />
+            </Style>
+        </Style>
 
-      <TextBlock Text="Text" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </Panel>
-    <Panel>
-      <local:AnimationControl/>
-    </Panel>
-  </StackPanel>
-  
+    </Window.Styles>
+
+    <TabControl>
+        <TabItem Header="TransitioningContentControl">
+            <StackPanel Orientation="Vertical">
+                <ToggleButton IsChecked="True" Checked="OnCheckedTcc" Unchecked="OnUncheckedTcc">Click to Transition</ToggleButton>
+                <TransitioningContentControl x:Name="_tcc">
+                    <TransitioningContentControl.PageTransition>
+                        <CrossFade Duration="00:00:01" />
+                    </TransitioningContentControl.PageTransition>
+                </TransitioningContentControl>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Animations">
+            <StackPanel Orientation="Vertical" Spacing="8" Margin="8">
+                <CheckBox x:Name="_useRenderTransformCheckBox" Name="useRenderTransformCheckBox" IsChecked="False">Use Render Transform</CheckBox>
+                <ToggleButton Checked="OnChecked" Unchecked="OnUnchecked">Animation</ToggleButton>
+                <Panel x:Name="_animGrid" Width="200" HorizontalAlignment="Left" Height="200"
+                       Classes="animGrid"
+                       Classes.useRenderTransform="{Binding #useRenderTransformCheckBox.IsChecked}">
+                    <!-- assign an extra class based on the check box state -->
+
+                    <TextBlock Text="Text" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Panel>
+                <Panel>
+                    <local:AnimationControl/>
+                </Panel>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+
 </Window>
