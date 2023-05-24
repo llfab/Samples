@@ -36,6 +36,9 @@
     </Window.Styles>
 
     <TabControl>
+        <TabItem Header="CustomControl">
+            <local:MyCustomControl Width="400" Height="400"/>
+        </TabItem>
         <TabItem Header="TransitioningContentControl">
             <StackPanel Orientation="Vertical">
                 <ToggleButton IsChecked="True" Checked="OnCheckedTcc" Unchecked="OnUncheckedTcc">Click to Transition</ToggleButton>

@@ -4,11 +4,11 @@
         <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.0-preview7" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview7" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview7" />
+        <PackageReference Include="Avalonia" Version="11.0.999-cibuild0035173-beta" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.999-cibuild0035173-beta" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.999-cibuild0035173-beta" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.0-preview7" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.999-cibuild0035173-beta" />
     </ItemGroup>
     <ItemGroup>
       <UpToDateCheckInput Remove="AnimationControl.axaml" />
