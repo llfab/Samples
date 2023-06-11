@@ -17,7 +17,7 @@ namespace AvaloniaAnimationTest
             {
                 _pushedStates.Push(context.PushTransform(Matrix.Identity));
                 _pushedStates.Push(context.PushClip(new Rect(Bounds.Size)));
-                _pushedStates.Push(context.PushOpacity(1, new Rect(Bounds.Size)));
+                _pushedStates.Push(context.PushOpacity(1));
 
                 // If you uncommment below drawing code, everything works
                 //SolidColorBrush brush = new SolidColorBrush(Colors.Red);
