@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        x:Class="FontShift.Application.Views.SplashScreenWindow"
+        Title="SplashScreenWindow"
+        WindowStartupLocation="CenterScreen"
+        SystemDecorations="None"
+		    Topmost="True">
+  <Grid>
+    <Image x:Name="_image" Source="{StaticResource SplashScreenWindowImage}" Stretch="None"/>
+  </Grid>
+</Window>

@@ -1,0 +1,46 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:bui="BitsOfNature.UI"
+        xmlns:kb="using:BitsOfNature.UI.Core.Input.KeyboardLayouting"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Spacing="20">
+        <TextBox>Left</TextBox>
+        <TextBox IsEnabled="False">Disabled</TextBox>
+        <TextBox TextAlignment="Center">Center</TextBox>
+        <TextBox Classes="clearButton">Clear</TextBox>
+        <TextBox PasswordChar="*" Classes="revealPasswordButton">Reveal Password</TextBox>
+        <TextBox PasswordChar="*" Classes="revealPasswordButton" RevealPassword="True">Password Revealed</TextBox>
+        <TextBox Watermark="Watermark"/>
+        <TextBox Watermark="Floating Watermark" UseFloatingWatermark="True"/>
+        <TextBox Watermark="Floating Watermark" UseFloatingWatermark="True">Content</TextBox>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <Style Selector="TextBox">
+    <Setter Property="CornerRadius" Value="0" />
+    <Setter Property="Background" Value="{StaticResource TransparentBlackColor}"/>
+
+    <Style Selector="^:disabled">
+      <Style Selector="^ /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="{StaticResource BackgroundHigh}"/>
+      </Style>
+    </Style>
+
+    <Style Selector="^:pointerover">
+      <Style Selector="^ /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="{StaticResource TransparentBlackColor}"/>
+      </Style>
+    </Style>
+
+    <Style Selector="^:focus">
+      <Style Selector="^ /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="{StaticResource TransparentBlackColor}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BackgroundHighlightedDefault}"/>
+        <Setter Property="BorderThickness" Value="{StaticResource TextControlBorderThemeThicknessFocused}" />
+      </Style>
+    </Style>
+
+  </Style>
+</Styles>

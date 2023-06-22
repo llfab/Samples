@@ -1,0 +1,83 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:FontShift.Application.ViewModels"
+             xmlns:ucp="using:FontShift.Application.UserControls.Primitives"
+             xmlns:uc="using:FontShift.Application.UserControls"
+             xmlns:v="using:FontShift.Application.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="{StaticResource XrayGuidanceViewInfoViewWidth}" d:DesignHeight="900"
+             x:DataType="vm:GuidanceInfoPlatePreviewViewModel"
+             x:Class="FontShift.Application.Views.GuidanceInfoPlatePreviewView">
+
+  <Design.DataContext>
+    <vm:GuidanceInfoPlatePreviewViewModel/>
+  </Design.DataContext>
+
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="/GlobalResources.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </UserControl.Resources>
+
+  <UserControl.Styles>
+
+    <Style Selector="TextBlock.titleText">
+      <Setter Property="Foreground" Value="{StaticResource FontColorHigh}" />
+      <Setter Property="FontSize" Value="{StaticResource FontSizeVeryHigh}" />
+      <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style Selector="TextBlock.headerText">
+      <Setter Property="Foreground" Value="{StaticResource FontColorHigh}" />
+      <Setter Property="FontSize" Value="{StaticResource FontSizeHigh}" />
+      <Setter Property="FontWeight" Value="Normal" />
+    </Style>
+
+    <Style Selector="TextBlock.header">
+      <Setter Property="Foreground" Value="{StaticResource FontColorDefault}" />
+      <Setter Property="FontSize" Value="{StaticResource FontSizeVeryHigh}" />
+    </Style>
+
+    <Style Selector="TextBlock.title">
+      <Setter Property="Foreground" Value="{StaticResource FontColorDefault}" />
+      <Setter Property="FontSize" Value="{StaticResource FontSizeHigh}" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="TextBlock.category">
+      <Setter Property="Foreground" Value="{StaticResource FontColorHigh}" />
+      <Setter Property="FontSize" Value="{StaticResource FontSizeDefault}" />
+    </Style>
+
+    <Style Selector="TextBlock.value">
+      <Setter Property="FontSize" Value="{StaticResource FontSizeVeryHigh}" />
+      <Setter Property="FontWeight" Value="Bold" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+
+      <Style Selector="^[Tag=false]">
+        <Setter Property="Foreground" Value="{StaticResource FontColorWarning}" />
+      </Style>
+    </Style>
+
+  </UserControl.Styles>
+
+  <Grid Background="{StaticResource BackgroundDefault}">
+    <StackPanel Orientation="Vertical"
+                      Spacing="16">
+
+      <StackPanel Orientation="Horizontal"
+                        Spacing="16">
+        <Image Source="{StaticResource GuidanceInfoPlatePreviewViewInformationIcon}"
+               Stretch="None" />
+        <TextBlock Classes="titleText"
+                   Text="{Binding Source={StaticResource GuidanceInfoPlatePreviewViewInformation}}" />
+      </StackPanel>
+
+      <!-- Information -->
+
+    </StackPanel>
+  </Grid>
+</UserControl>

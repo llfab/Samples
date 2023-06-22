@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:FontShift.Application.ViewModels"
+             xmlns:ucp="using:FontShift.Application.UserControls.Primitives"
+             xmlns:uc="using:FontShift.Application.UserControls"
+             xmlns:v="using:FontShift.Application.Views"
+             xmlns:con="using:FontShift.Application.UserControls.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="900"
+             x:DataType="vm:GuidanceVisualizationViewModel"
+             x:Class="FontShift.Application.Views.GuidanceVisualizationView">
+
+  <Design.DataContext>
+    <vm:GuidanceVisualizationViewModel/>
+  </Design.DataContext>
+
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="/GlobalResources.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+    <con:GuidanceWorkflowStateBoolConverter x:Key="guidanceWorkflowStateConverter" />
+  </UserControl.Resources>
+
+  <Grid>
+    <!-- Visualization for Templating -->
+    <Grid IsVisible="{Binding CurrentGuidanceWorkflowState, Mode=OneWay, Converter={StaticResource guidanceWorkflowStateConverter}, ConverterParameter=Templating}" >
+      <v:GuidanceVisualizationTemplatingView DataContext="{Binding GuidanceVisualizationTemplatingViewModel}" />
+    </Grid>
+
+    <!-- Visualization for Plate Preview -->
+    <Grid IsVisible="{Binding CurrentGuidanceWorkflowState, Mode=OneWay, Converter={StaticResource guidanceWorkflowStateConverter}, ConverterParameter=PlatePreview}" >
+      <v:GuidanceVisualizationPlatePreviewView DataContext="{Binding GuidanceVisualizationPlatePreviewViewModel}" />
+    </Grid>
+
+    <!-- Visualization for Articular Targeting -->
+    <Grid IsVisible="{Binding CurrentGuidanceWorkflowState, Mode=OneWay, Converter={StaticResource guidanceWorkflowStateConverter}, ConverterParameter=ArticularTargeting}" >
+      <v:GuidanceVisualizationArticularTargetingView DataContext="{Binding GuidanceVisualizationArticularTargetingViewModel}" />
+    </Grid>
+
+  </Grid>
+
+</UserControl>

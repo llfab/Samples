@@ -1,0 +1,272 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:ucp="using:FontShift.Application.UserControls.Primitives">
+  <Design.PreviewWith>
+    <Grid RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto" ColumnDefinitions="auto,auto,auto,auto,auto,auto,auto,auto">
+      <Image Grid.Row="0" Grid.Column="0" Source="{StaticResource DefaultInfoIcon}"/>
+      <Image Grid.Row="0" Grid.Column="1" Source="{StaticResource DefaultWarningIcon}"/>
+      <Image Grid.Row="0" Grid.Column="2" Source="{StaticResource DefaultErrorIcon}"/>
+      <Image Grid.Row="0" Grid.Column="3" Source="{StaticResource ConfirmationMessageDefaultIcon}"/>
+
+      <Image Grid.Row="1" Grid.Column="1" Source="{StaticResource AboutDialogStrykerIcon}"/>
+
+      <Image Grid.Row="2" Grid.Column="0" Source="{StaticResource GuidanceControlTemplatingViewManualControlsIcon}"/>
+      <Image Grid.Row="2" Grid.Column="1" Source="{StaticResource AboutDialogStrykerIcon}"/>
+      <Image Grid.Row="2" Grid.Column="2" Source="{StaticResource AboutDialogStrykerIcon}"/>
+    </Grid>
+  </Design.PreviewWith>
+
+  <Styles.Resources>
+
+    <!-- ################################ -->
+    <!-- ######## Global Elements ####### -->
+    <!-- ################################ -->
+
+    <!-- Global - localized -->
+    <System:String x:Key="GlobalPasswordChar">Global/PasswordChar</System:String>
+    <System:String x:Key="GlobalFrontendDateTimeDefaultFormat">Global/yyyy-MM-dd HH:mm:ss</System:String>
+    <System:String x:Key="GlobalFrontendTimeDefaultFormat">Global/HH:mm:ss</System:String>
+    <System:String x:Key="GlobalFrontendDateDefaultFormat">Global/yyyy-MM-dd</System:String>
+
+    <!-- Global - non-localized -->
+    <System:String x:Key="GlobalBackendDateTimeDefaultFormat">yyyyMMdd-HHmmss</System:String>
+    <System:String x:Key="GlobalBackendTimeDefaultFormat">HHmmss</System:String>
+    <System:String x:Key="GlobalBackendDateDefaultFormat">yyyyMMdd</System:String>
+    <System:String x:Key="GlobalLoggingDateTimeDefaultFormat">yyyy-MM-dd HH:mm:ss</System:String>
+    <System:String x:Key="GlobalLoggingTimeDefaultFormat">HH:mm:ss</System:String>
+    <System:String x:Key="GlobalLoggingDateDefaultFormat">yyyy-MM-dd</System:String>
+    <System:Int32 x:Key="GlobalAnonymizationMinLength">3</System:Int32>
+    <System:String x:Key="GlobalAnonymizationChar">x</System:String>
+
+    <!-- Case Manager -->
+    <System:String x:Key="CaseManagerDateTimePlaceholder">%DATETIME%</System:String>
+    <System:String x:Key="CaseManagerCaseFilename">Case.json</System:String>
+
+    <!-- Memory Manager -->
+    <System:String x:Key="MemoryManagerIdPlaceholder">%ID%</System:String>
+    <System:String x:Key="MemoryManagerImageTypePlaceholder">%IMAGETYPE%</System:String>
+
+    <!-- Presentation Model -->
+    <System:String x:Key="PresentationModelProcessingBusyText">PresentationModel/Processing</System:String>
+
+
+    <!-- ################################ -->
+    <!-- ###### Control Primitives ###### -->
+    <!-- ################################ -->
+
+    <!-- Button -->
+    <System:Double x:Key="DefaultButtonWidth">196</System:Double>
+    <System:Double x:Key="DefaultButtonHeight">48</System:Double>
+    <System:Double x:Key="DefaultPillButtonWidth">196</System:Double>
+    <System:Double x:Key="DefaultPillButtonHeight">48</System:Double>
+    <System:Double x:Key="DefaultBoxButtonWidth">196</System:Double>
+    <System:Double x:Key="DefaultBoxButtonHeight">64</System:Double>
+    <System:Double x:Key="DefaultButtonPathIconWidth">24</System:Double>
+    <System:Double x:Key="DefaultButtonPathIconHeight">24</System:Double>
+
+    <System:Double x:Key="DefaultButtonDisabledImageOpacity">0.75</System:Double>
+    <System:Double x:Key="DefaultControlButtonDisabledImageOpacity">0.5</System:Double>
+
+    <!-- IndicatorBox -->
+    <System:Double x:Key="DefaultIndicatorBoxWidth">512</System:Double>
+    <IImage x:Key="DefaultInfoIcon">avares://FontShift/AssetsEmbedded/Images/icon-information.png</IImage>
+    <IImage x:Key="DefaultWarningIcon">avares://FontShift/AssetsEmbedded/Images/icon-warning.png</IImage>
+    <IImage x:Key="DefaultErrorIcon">avares://FontShift/AssetsEmbedded/Images/icon-error.png</IImage>
+
+    <!-- TextBox -->
+    <System:Double x:Key="DefaultTextBoxDisabledOpacity">0.5</System:Double>
+
+
+    <!-- ################################ -->
+    <!-- ####### Top Level Windows ###### -->
+    <!-- ################################ -->
+
+    <!-- Splash Screen -->
+    <IImage x:Key="SplashScreenWindowImage">avares://FontShift/AssetsEmbedded/Images/splash-screen-image.png</IImage>
+
+    <!-- Main Window -->
+    <System:TimeSpan x:Key="MainWindowDialogFadeDuration">0:0:0.350</System:TimeSpan>
+
+    <!-- ################################ -->
+    <!-- ######## User Controls ######### -->
+    <!-- ################################ -->
+
+    <!-- Menu View -->
+    <System:String x:Key="MenuViewTemplating">Templating</System:String>
+    <System:String x:Key="MenuViewPlatePreview">Plate Preview</System:String>
+    <System:String x:Key="MenuViewPlatePositioning">Plate Positioning</System:String>
+    <System:String x:Key="MenuViewArticularTargeting">Articular Targeting</System:String>
+    <System:String x:Key="MenuViewShaftTargeting">Shaft Targeting</System:String>
+    <System:Double x:Key="MenuViewMenuItemHeight">80</System:Double>
+    <System:Double x:Key="MenuViewWorkflowItemWidth">256</System:Double>
+    <System:Double x:Key="MenuViewStrykerItemWidth">160</System:Double>
+    <System:Double x:Key="MenuViewMenuItemWidth">64</System:Double>
+    <IImage x:Key="MenuViewAcquireXrayImage">avares://FontShift/AssetsEmbedded/Images/radioactive-icon.png</IImage>
+
+    <!-- Xray Guidance View -->
+    <System:Double x:Key="XrayGuidanceViewControlViewWidth">408</System:Double>
+    <System:Double x:Key="XrayGuidanceViewInfoViewWidth">408</System:Double>
+    <System:Double x:Key="XrayGuidanceViewBoxButtonWidth">196</System:Double>
+    <System:Double x:Key="XrayGuidanceViewBoxButtonHeight">48</System:Double>
+    <System:Double x:Key="XrayGuidanceViewMenuBoxButtonWidth">196</System:Double>
+    <System:Double x:Key="XrayGuidanceViewMenuBoxButtonHeight">38</System:Double>
+    <System:Double x:Key="XrayGuidanceViewMenuWidth">256</System:Double>
+    <System:Double x:Key="XrayGuidanceViewMenuModeSelectorWidth">32</System:Double>
+    <System:Double x:Key="XrayGuidanceViewMenuModeSelectorHeight">32</System:Double>
+    <System:Double x:Key="XrayGuidanceViewMenuModeSelectorIconWidth">16</System:Double>
+    <System:Double x:Key="XrayGuidanceViewMenuModeSelectorIconHeight">16</System:Double>
+    <System:Double x:Key="XrayGuidanceViewMenuButtonWidth">196</System:Double>
+    <System:Double x:Key="XrayGuidanceViewMenuButtonHeight">32</System:Double>
+    <System:Double x:Key="XrayGuidanceViewWarningIndicatorWidth">520</System:Double>
+    <IImage x:Key="XrayGuidanceViewDesignerImage">avares://FontShift/AssetsEmbedded/Images/fluoro-image.png</IImage>
+    <System:String x:Key="XrayGuidanceViewEmptyText">XrayGuidanceView/Acquire X-ray</System:String>
+    <System:String x:Key="XrayGuidanceViewMenu">XrayGuidanceView/Menu</System:String>
+    <System:String x:Key="XrayGuidanceViewXrayMiscellaneous">XrayGuidanceView/Miscellaneous</System:String>
+    <System:String x:Key="XrayGuidanceViewXrayImageRotation">XrayGuidanceView/Image Rotation</System:String>
+    <System:String x:Key="XrayGuidanceViewXrayVisibility">XrayGuidanceView/Visibility</System:String>
+    <System:String x:Key="XrayGuidanceViewBeamArea">XrayGuidanceView/Beam Area</System:String>
+    <System:String x:Key="XrayGuidanceViewReferenceBody">XrayGuidanceView/Reference Body</System:String>
+    <System:String x:Key="XrayGuidanceViewMarkerImage">XrayGuidanceView/Marker Image</System:String>
+    <System:String x:Key="XrayGuidanceViewResetUserDefinedXrayVisualization">XrayGuidanceView/Reset All</System:String>
+    <System:String x:Key="XrayGuidanceViewResetXrayPosition">XrayGuidanceView/Reset Position</System:String>
+    <System:String x:Key="XrayGuidanceViewXrayOverlays">XrayGuidanceView/Overlays</System:String>
+    <System:String x:Key="XrayGuidanceViewWarningNoImageProcessingResult">XrayGuidanceView/No image processing result available</System:String>
+    <System:String x:Key="XrayGuidanceViewWarningUnhandledException">XrayGuidanceView/Unhandled exception</System:String>
+
+    <IImage x:Key="XrayGuidanceViewHideIcon">avares://FontShift/AssetsEmbedded/Images/hide-icon.png</IImage>
+    <IImage x:Key="XrayGuidanceViewShowIcon">avares://FontShift/AssetsEmbedded/Images/show-icon.png</IImage>
+    <IImage x:Key="XrayGuidanceViewShowDefaultIcon">avares://FontShift/AssetsEmbedded/Images/show-default-icon.png</IImage>
+    <IImage x:Key="XrayGuidanceViewAutoRotationEnabledIcon">avares://FontShift/AssetsEmbedded/Images/auto-rotation-enabled-icon.png</IImage>
+    <IImage x:Key="XrayGuidanceViewAutoRotationDisabledIcon">avares://FontShift/AssetsEmbedded/Images/auto-rotation-disabled-icon.png</IImage>
+
+    <!-- Xray Guidance Visualization Templating View -->
+    <System:String x:Key="XrayGuidanceVisualizationTemplatingViewApDisplayName">XrayGuidanceVisualizationTemplatingView/AP</System:String>
+    <System:String x:Key="XrayGuidanceVisualizationTemplatingViewMlDisplayName">XrayGuidanceVisualizationTemplatingView/ML</System:String>
+
+    <!-- Xray Guidance Visualization Plate Preview View -->
+    <System:String x:Key="XrayGuidanceVisualizationPlatePreviewViewApDisplayName">XrayGuidanceVisualizationPlatePreviewView/AP</System:String>
+    <System:String x:Key="XrayGuidanceVisualizationPlatePreviewViewMlDisplayName">XrayGuidanceVisualizationPlatePreviewView/ML</System:String>
+
+    <!-- Xray Guidance Visualization Articular Targeting View -->
+    <System:String x:Key="XrayGuidanceVisualizationArticularTargetingViewApDisplayName">XrayGuidanceVisualizationArticularTargetingView/AP</System:String>
+    <System:String x:Key="XrayGuidanceVisualizationArticularTargetingViewMlDisplayName">XrayGuidanceVisualizationArticularTargetingView/ML</System:String>
+
+    <!-- Tool Video View -->
+    <System:Double x:Key="ToolVideoViewBoxButtonWidth">96</System:Double>
+    <System:Double x:Key="ToolVideoViewBoxButtonHeight">32</System:Double>
+    <System:Double x:Key="ToolVideoViewWarningIndicatorWidth">240</System:Double>
+    <System:String x:Key="ToolVideoViewEmptyText">ToolVideoView/No Video</System:String>
+    <System:String x:Key="ToolVideoViewWarningToolNotConnected">ToolVideoView/Tool not connected</System:String>
+    <System:String x:Key="ToolVideoViewResetVideoPosition">ToolVideoView/Reset Position</System:String>
+    <System:String x:Key="ToolVideoViewToggleTrackingState">ToolVideoView/Tracking</System:String>
+
+    <!-- Xray Guidance Scene -->
+    <!--<System:String x:Key="XrayGuidanceSceneMetatarsalAngleMt1ProximalName">XrayGuidanceScene/MT1-Proximal</System:String>-->
+    <!--<System:String x:Key="XrayGuidanceSceneMetatarsalAngleMt1DistalName">XrayGuidanceScene/MT1-Distal</System:String>-->
+
+    <!-- Guidance Control Templating View -->
+    <System:String x:Key="GuidanceControlTemplatingViewManualControls">Manual Controls</System:String>
+    <IImage x:Key="GuidanceControlTemplatingViewManualControlsIcon">avares://FontShift/AssetsEmbedded/Images/manual-controls-icon.png</IImage>
+
+    <!-- Guidance Info Templating View -->
+    <System:String x:Key="GuidanceInfoTemplatingViewInformation">Information</System:String>
+    <System:String x:Key="GuidanceInfoTemplatingViewNotAvailable">n/a</System:String>
+    <IImage x:Key="GuidanceInfoTemplatingViewInformationIcon">avares://FontShift/AssetsEmbedded/Images/information-icon.png</IImage>
+
+    <!-- Guidance Control Plate Preview View -->
+    <System:String x:Key="GuidanceControlPlatePreviewViewManualControls">Manual Controls</System:String>
+    <IImage x:Key="GuidanceControlPlatePreviewViewManualControlsIcon">avares://FontShift/AssetsEmbedded/Images/manual-controls-icon.png</IImage>
+
+    <!-- Guidance Info Plate Preview View -->
+    <System:String x:Key="GuidanceInfoPlatePreviewViewInformation">Information</System:String>
+    <System:String x:Key="GuidanceInfoPlatePreviewViewNotAvailable">n/a</System:String>
+    <IImage x:Key="GuidanceInfoPlatePreviewViewInformationIcon">avares://FontShift/AssetsEmbedded/Images/information-icon.png</IImage>
+
+    <!-- Guidance Control Articular Targeting View -->
+    <System:String x:Key="GuidanceControlArticularTargetingViewManualControls">Manual Controls</System:String>
+    <IImage x:Key="GuidanceControlArticularTargetingViewManualControlsIcon">avares://FontShift/AssetsEmbedded/Images/manual-controls-icon.png</IImage>
+
+    <!-- Guidance Info Articular Targeting View -->
+    <System:String x:Key="GuidanceInfoArticularTargetingViewInformation">Information</System:String>
+    <System:String x:Key="GuidanceInfoArticularTargetingViewNotAvailable">n/a</System:String>
+    <IImage x:Key="GuidanceInfoArticularTargetingViewInformationIcon">avares://FontShift/AssetsEmbedded/Images/information-icon.png</IImage>
+
+
+    <!-- ################################ -->
+    <!-- ########### Dialogs ############ -->
+    <!-- ################################ -->
+
+    <!-- System Menu -->
+    <System:String x:Key="SystemMenuAbout">SystemMenu/About</System:String>
+    <System:String x:Key="SystemMenuSettings">SystemMenu/Settings</System:String>
+    <System:String x:Key="SystemMenuExit">SystemMenu/Exit</System:String>
+    <System:Double x:Key="SystemMenuItemHeight">80</System:Double>
+    <System:Double x:Key="SystemMenuMenuItemWidth">256</System:Double>
+
+    <System:String x:Key="SystemMenuSettingIcon">avares://FontShift/AssetsEmbedded/ScalableGraphics/CogWheelFilledIcon.svg</System:String>
+
+
+    <!-- About Dialog -->
+    <Thickness x:Key="AboutDialogPadding">0</Thickness>
+    <IImage x:Key="AboutDialogStrykerIcon">avares://FontShift/AssetsEmbedded/Images/stryker-logo-white.png</IImage>
+    <System:Double x:Key="AboutDialogStrykerIconWidth">128</System:Double>
+    <System:Double x:Key="AboutDialogButtonWidth">128</System:Double>
+    <System:String x:Key="AboutDialogFontShiftName">Stryker PIXr MIS Bunion</System:String>
+    <System:String x:Key="AboutDialogVersionLabel">AboutDialog/Version</System:String>
+    <System:String x:Key="AboutDialogCopyrightLabel">AboutDialog/Copyright © 2022-2027</System:String>
+    <System:String x:Key="AboutDialogCompanyLabel">AboutDialog/Stryker Leibinger GmbH &amp; Co. KG</System:String>
+    <System:String x:Key="AboutDialogAddressLabel">AboutDialog/Boetzinger Str. 41, 79111 Freiburg, Germany</System:String>
+    <System:String x:Key="AboutDialogClose">AboutDialog/Close</System:String>
+
+    <!-- Confirmation Message Dialog -->
+    <Thickness x:Key="ConfirmationMessageDialogPadding">0</Thickness>
+    <IImage x:Key="ConfirmationMessageDefaultIcon">avares://FontShift/AssetsEmbedded/Images/info.png</IImage>
+    <System:Double x:Key="ConfirmationMessageBusyIndicatorSize">80</System:Double>
+    <System:Double x:Key="ConfirmationMessageButtonWidth">128</System:Double>
+    <System:String x:Key="ConfirmationMessageDesignMessageText">ConfirmationMessage/Do you really want this?</System:String>
+    <System:String x:Key="ConfirmationMessageYes">ConfirmationMessage/Yes</System:String>
+    <System:String x:Key="ConfirmationMessageNo">ConfirmationMessage/No</System:String>
+    <System:String x:Key="ConfirmationMessageOk">ConfirmationMessage/Ok</System:String>
+    <System:String x:Key="ConfirmationMessageCancel">ConfirmationMessage/Cancel</System:String>
+
+    <!-- Error Confirmation Message Dialog -->
+    <Thickness x:Key="ErrorConfirmationMessageDialogPadding">0</Thickness>
+    <IImage x:Key="ErrorConfirmationMessageDefaultIcon">avares://FontShift/AssetsEmbedded/Images/icon-warning.png</IImage>
+    <System:Double x:Key="ErrorConfirmationMessagePanelWidth">1400</System:Double>
+    <System:Double x:Key="ErrorConfirmationMessagePanelHeight">800</System:Double>
+    <System:Double x:Key="ErrorConfirmationMessageButtonWidth">128</System:Double>
+    <System:String x:Key="ErrorConfirmationMessageDesignHeaderText">ErrorConfirmationMessage/Error occurred</System:String>
+    <System:String x:Key="ErrorConfirmationMessageDesignMessageText">ErrorConfirmationMessage/Image processing failed: \nCould not find Beam Area.</System:String>
+    <System:String x:Key="ErrorConfirmationMessageYes">ErrorConfirmationMessage/Yes</System:String>
+    <System:String x:Key="ErrorConfirmationMessageNo">ErrorConfirmationMessage/No</System:String>
+    <System:String x:Key="ErrorConfirmationMessageOk">ErrorConfirmationMessage/Ok</System:String>
+    <System:String x:Key="ErrorConfirmationMessageCancel">ErrorConfirmationMessage/Cancel</System:String>
+
+    <System:String x:Key="ErrorConfirmationMessageImageProcessingFailedHeader">ErrorConfirmationMessage/Error</System:String>
+    <System:String x:Key="ErrorConfirmationMessageImageProcessingFailedMessage">ErrorConfirmationMessage/Image Processing failed.\nResult: {0} \nPreProcessingResult: {1} \nReason: {2} \nAIProcessingResult: {3} \nReason: {4}</System:String>
+
+    <!-- Image Processing Busy Message Dialog -->
+    <Thickness x:Key="ImageProcessingBusyMessageDialogPadding">0</Thickness>
+    <System:TimeSpan x:Key="ImageProcessingBusyMessageDialogIndicatorAnimationDuration">0:0:1.000</System:TimeSpan>
+    <System:Double x:Key="ImageProcessingBusyMessageDialogIndicatorWidth">512</System:Double>
+
+    <!-- Exit Application Dialog -->
+    <Thickness x:Key="ExitProgramDialogPadding">0</Thickness>
+    <IImage x:Key="ExitProgramShutdownIcon">avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png</IImage>
+    <System:Double x:Key="ExitProgramButtonWidth">200</System:Double>
+    <System:Double x:Key="ExitProgramButtonHeight">200</System:Double>
+    <System:String x:Key="ExitProgramCancel">ExitProgram/Cancel</System:String>
+    <System:String x:Key="ExitProgramExitProgram">ExitProgram/Exit program</System:String>
+
+    <!-- ########### UI Designer ########### -->
+    <!-- Metatarsals -->
+    <!--<System:String x:Key="DesignerMetatarsalsMt1Proximal">500 500</System:String>-->
+    <!--<System:String x:Key="DesignerMetatarsalsMt1Distal">650 200</System:String>-->
+    <!--<System:String x:Key="DesignerMetatarsalsMt2Proximal">350 450</System:String>-->
+    <!--<System:String x:Key="DesignerMetatarsalsMt2Distal">300 250</System:String>-->
+
+
+  </Styles.Resources>
+
+</Styles>

@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:FontShift.Application.ViewModels"
+             xmlns:ucp="using:FontShift.Application.UserControls.Primitives"
+             xmlns:uc="using:FontShift.Application.UserControls"
+             xmlns:v="using:FontShift.Application.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="900"
+             x:DataType="vm:GuidanceViewModel"
+             x:Class="FontShift.Application.Views.GuidanceView">
+
+  <Design.DataContext>
+    <vm:GuidanceViewModel/>
+  </Design.DataContext>
+
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="/GlobalResources.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </UserControl.Resources>
+
+  <UserControl.Styles>
+
+    <Style Selector=":is(Panel).contentView">
+      <Setter Property="Background" Value="{StaticResource BackgroundLow}" />
+    </Style>
+
+  </UserControl.Styles>
+
+  <Grid Classes="contentView"
+        ColumnDefinitions="300,*"
+        DragDrop.AllowDrop="{Binding DropAllowed}" >
+    <v:GuidanceInfoView Grid.Column="0"
+                        DataContext="{Binding GuidanceInfoViewModel}"
+                        HorizontalAlignment="Left"/>
+    <!--<Grid Grid.Column="0"
+          
+          RowDefinitions="*,4,*">
+      <v:GuidanceControlView Grid.Row="0"
+                             DataContext="{Binding GuidanceControlViewModel}"
+                             HorizontalAlignment="Left"
+                             Width="{StaticResource XrayGuidanceViewControlViewWidth}"/>
+      <Grid Grid.Row="1" Background="{StaticResource BackgroundLow}"/>
+      <v:GuidanceInfoView Grid.Row="2"
+                          DataContext="{Binding GuidanceInfoViewModel}"
+                          HorizontalAlignment="Left"
+                          Width="{StaticResource XrayGuidanceViewControlViewWidth}"/>
+    </Grid>-->
+    <v:GuidanceVisualizationView Grid.Column="1"
+                        DataContext="{Binding GuidanceVisualizationViewModel}"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch" />
+  </Grid>
+
+</UserControl>

@@ -1,0 +1,114 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:bui="BitsOfNature.UI"
+        xmlns:ucp="using:FontShift.Application.UserControls.Primitives">
+  <Design.PreviewWith>
+    <Border Padding="16" Width="600" Height="1200">
+      <StackPanel Orientation="Vertical" Spacing="16">
+        <ucp:IndicatorBox Text="Some Error happened." IndicatorType="None" />
+        <ucp:IndicatorBox Text="A message with a longer text that should wrap automatically." IndicatorType="None" />
+        <ucp:IndicatorBox Text="Some Error happened.&#10;With a new line..." IndicatorType="Info" />
+        <ucp:IndicatorBox Text="Some Error happened." IndicatorType="Warning" Icon="{StaticResource DefaultWarningIcon}" IconScaleFactor="0.5"/>
+        <ucp:IndicatorBox Text="Some Error happened. With a longer warning text that is pretty long." IndicatorType="Warning" Icon="{StaticResource DefaultWarningIcon}" IconScaleFactor="0.5"/>
+        <ucp:IndicatorBox Text="Some Error happened." IndicatorType="Warning" 
+                          IconMargin="0 0 48 0"
+                          Icon="{StaticResource DefaultWarningIcon}" IconScaleFactor="0.5"/>
+        <ucp:IndicatorBox Text="" IndicatorType="Error" Icon="{StaticResource DefaultErrorIcon}" />
+        <ucp:IndicatorBox Text="" IndicatorType="Error" Icon="{StaticResource DefaultErrorIcon}" IconScaleFactor="1.5" />
+        <ucp:IndicatorBox Text="Some Error happened." IndicatorType="Warning" Icon="{StaticResource DefaultWarningIcon}" IconScaleFactor="0.5"
+                          HorizontalContentAlignment="Left" IconMargin="16 0 0 0" TextMargin="16 0 0 0"/>
+        <ucp:IndicatorBox Text="Some Error happened. With a longer warning text that is pretty long." IndicatorType="Warning" Icon="{StaticResource DefaultWarningIcon}" IconScaleFactor="0.5"
+                          HorizontalContentAlignment="Left" IconMargin="16 0 0 0" TextMargin="16 0 0 0"/>
+        <ucp:IndicatorBox Text="Some Error happened." IndicatorType="Warning" Icon="{StaticResource DefaultWarningIcon}" IconScaleFactor="0.5"
+                          HorizontalContentAlignment="Left" IconMargin="16 0 0 0" TextMargin="16 0 0 0"/>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <Style Selector="ucp|IndicatorBox">
+    <!-- Set Defaults -->
+    <Setter Property="Background" Value="{StaticResource BackgroundLow}" />
+    <Setter Property="Foreground" Value="{StaticResource FontColorDefault}" />
+    <Setter Property="FontSize" Value="{StaticResource FontSizeDefault}" />
+    <Setter Property="Width" Value="{StaticResource DefaultIndicatorBoxWidth}" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border x:Name="PART_Border" 
+                BorderThickness="2" 
+                BorderBrush="{StaticResource FontColorDefault}" 
+                CornerRadius="2" 
+                Padding="8"
+                Background="{TemplateBinding Background}">
+          <StackPanel x:Name="PART_Panel" 
+                            Spacing="16"
+                            Orientation="Horizontal" >
+            <StackPanel 
+                              Orientation="Horizontal" 
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Spacing="16">
+              <Image x:Name="PART_Image"
+                     Stretch="Uniform" 
+                     StretchDirection="Both" 
+                     Margin="{TemplateBinding IconMargin}"
+                     Width="{TemplateBinding IconWidth}" 
+                     Height="{TemplateBinding IconHeight}"
+                     Source="{TemplateBinding Icon}" 
+                     HorizontalAlignment="{TemplateBinding IconHorizontalAlignment}" 
+                     VerticalAlignment="{TemplateBinding IconVerticalAlignment}"
+                     IsVisible="{Binding $self.Source, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+              <TextBlock 
+                         x:Name="PART_TextBlock" 
+                         Text="{TemplateBinding Text}" 
+                         Margin="{TemplateBinding TextMargin}"
+                         HorizontalAlignment="{TemplateBinding TextHorizontalAlignment}" 
+                         VerticalAlignment="{TemplateBinding TextVerticalAlignment}"
+                         IsVisible="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+  </Style>
+
+  <Style Selector="ucp|IndicatorBox" >
+    <Style Selector="^ /template/ TextBlock#PART_TextBlock" >
+      <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+  </Style>
+  
+  <Style Selector="ucp|IndicatorBox[IndicatorType=Info]" >
+    <Setter Property="Foreground" Value="{StaticResource FontColorInfo}" />
+    <Setter Property="FontSize" Value="{StaticResource FontSizeDefault}" />
+    <Setter Property="Width" Value="{StaticResource DefaultIndicatorBoxWidth}" />
+    
+    <Style Selector="^ /template/ Border#PART_Border" >
+      <Setter Property="BorderBrush" Value="{StaticResource FontColorInfo}" />
+    </Style>
+  </Style>
+
+  <Style Selector="ucp|IndicatorBox[IndicatorType=Warning]" >
+    <Setter Property="Foreground" Value="{StaticResource FontColorWarning}" />
+    <Setter Property="FontSize" Value="{StaticResource FontSizeDefault}" />
+    <Setter Property="Width" Value="{StaticResource DefaultIndicatorBoxWidth}" />
+
+    <Style Selector="^ /template/ Border#PART_Border" >
+      <Setter Property="BorderBrush" Value="{StaticResource FontColorWarning}" />
+    </Style>
+  </Style>
+
+  <Style Selector="ucp|IndicatorBox[IndicatorType=Error]" >
+    <Setter Property="Foreground" Value="{StaticResource FontColorError}" />
+    <Setter Property="FontSize" Value="{StaticResource FontSizeDefault}" />
+    <Setter Property="Width" Value="{StaticResource DefaultIndicatorBoxWidth}" />
+
+    <Style Selector="^ /template/ Border#PART_Border" >
+      <Setter Property="BorderBrush" Value="{StaticResource FontColorError}" />
+    </Style>
+  </Style>
+
+</Styles>

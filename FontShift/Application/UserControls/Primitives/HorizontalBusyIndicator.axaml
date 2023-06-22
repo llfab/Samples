@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:bui="BitsOfNature.UI"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ucp="using:FontShift.Application.UserControls.Primitives"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="100"
+             x:Class="FontShift.Application.UserControls.Primitives.HorizontalBusyIndicator">
+
+  <UserControl.Styles>
+    <Style Selector="ucp|HorizontalBusyIndicator">
+      <Setter Property="IsBusy" Value="True" />
+    </Style>
+  </UserControl.Styles>
+  
+  <Border Padding="{StaticResource ImageProcessingBusyMessageDialogPadding}"
+          BorderThickness="{StaticResource ImageProcessingBusyMessageDialogPadding}"
+          BorderBrush="{StaticResource BackgroundLow}"
+          Background="{StaticResource BackgroundLowTransparentLow}">
+      <Border Name="animationHost"
+              Height="4"
+              CornerRadius="2"
+              ClipToBounds="True"
+              Background="{StaticResource BackgroundLow}">
+      </Border>
+  </Border>
+</UserControl>

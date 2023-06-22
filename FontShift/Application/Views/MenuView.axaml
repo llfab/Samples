@@ -1,0 +1,129 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:FontShift.Application.ViewModels"
+             xmlns:ucp="using:FontShift.Application.UserControls.Primitives"
+             xmlns:uc="using:FontShift.Application.UserControls"
+             xmlns:v="using:FontShift.Application.Views"
+             xmlns:con="using:FontShift.Application.UserControls.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="400"
+             x:DataType="vm:MenuViewModel"
+             x:Class="FontShift.Application.Views.MenuView">
+
+  <Design.DataContext>
+    <vm:MenuViewModel/>
+  </Design.DataContext>
+
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="/GlobalResources.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+    <con:GuidanceWorkflowStateBoolConverter x:Key="guidanceWorkflowStateConverter" />
+  </UserControl.Resources>
+
+  <UserControl.Styles>
+
+    <!-- This user control -->
+    <Style Selector=":is(Panel).menuView">
+      <Setter Property="Background" Value="{StaticResource BackgroundLow}" />
+    </Style>
+
+  </UserControl.Styles>
+
+  <Grid VerticalAlignment="Top">
+    <StackPanel Classes="menuView" Spacing="4" Orientation="Horizontal" >
+      <StackPanel Orientation="Horizontal" Spacing="4"  >
+        <ucp:MenuStaticItem Width="{StaticResource MenuViewStrykerItemWidth}"
+                        Height="{StaticResource MenuViewMenuItemHeight}"
+                        Icon="avares://FontShift/AssetsEmbedded/Images/stryker-logo-white.png">
+        </ucp:MenuStaticItem>
+        <ucp:MenuSelectionItem Width="{StaticResource MenuViewWorkflowItemWidth}"
+                               Height="{StaticResource MenuViewMenuItemHeight}"
+                               Text="{Binding Source={StaticResource MenuViewTemplating}}"
+                               IsChecked="{Binding CurrentGuidanceWorkflowState, Mode=OneWay, Converter={StaticResource guidanceWorkflowStateConverter}, ConverterParameter=Templating}"
+                               Command="{Binding GotoGuidanceWorkflowStateTemplatingCommand}" />
+        <ucp:MenuSelectionItem Width="{StaticResource MenuViewWorkflowItemWidth}"
+                               Height="{StaticResource MenuViewMenuItemHeight}"
+                               Text="{Binding Source={StaticResource MenuViewPlatePreview}}"
+                               IsChecked="{Binding CurrentGuidanceWorkflowState, Mode=OneWay, Converter={StaticResource guidanceWorkflowStateConverter}, ConverterParameter=PlatePreview}"
+                               Command="{Binding GotoGuidanceWorkflowStatePlatePreviewCommand}" />
+        <ucp:MenuSelectionItem Width="{StaticResource MenuViewWorkflowItemWidth}"
+                               Height="{StaticResource MenuViewMenuItemHeight}"
+                               Text="{Binding Source={StaticResource MenuViewPlatePositioning}}"
+                               IsChecked="{Binding CurrentGuidanceWorkflowState, Mode=OneWay, Converter={StaticResource guidanceWorkflowStateConverter}, ConverterParameter=PlatePositioning}"
+                               Command="{Binding GotoGuidanceWorkflowStatePlatePositioningCommand}" />
+        <ucp:MenuSelectionItem Width="{StaticResource MenuViewWorkflowItemWidth}"
+                               Height="{StaticResource MenuViewMenuItemHeight}"
+                               Text="{Binding Source={StaticResource MenuViewArticularTargeting}}"
+                               IsChecked="{Binding CurrentGuidanceWorkflowState, Mode=OneWay, Converter={StaticResource guidanceWorkflowStateConverter}, ConverterParameter=ArticularTargeting}"
+                               Command="{Binding GotoGuidanceWorkflowStateArticularTargetingCommand}" />
+        <ucp:MenuSelectionItem Width="{StaticResource MenuViewWorkflowItemWidth}"
+                               Height="{StaticResource MenuViewMenuItemHeight}"
+                               Text="{Binding Source={StaticResource MenuViewShaftTargeting}}"
+                               IsChecked="{Binding CurrentGuidanceWorkflowState, Mode=OneWay, Converter={StaticResource guidanceWorkflowStateConverter}, ConverterParameter=ShaftTargeting}"
+                               Command="{Binding GotoGuidanceWorkflowStateShaftTargetingCommand}" />
+      </StackPanel>
+
+      <StackPanel Orientation="Horizontal" Spacing="4" 
+                        Background="{StaticResource BackgroundLow}">
+        <Grid 
+              Height="{StaticResource MenuViewMenuItemHeight}"
+              Background="{StaticResource BackgroundDefault}" />
+
+      </StackPanel>
+
+      <StackPanel Orientation="Horizontal" Spacing="4" >
+        <StackPanel Orientation="Horizontal"
+                          Spacing="4">
+          <ucp:MenuActionItem Width="{StaticResource MenuViewMenuItemWidth}"
+                              Height="{StaticResource MenuViewMenuItemHeight}"
+                              Icon="{StaticResource MenuViewAcquireXrayImage}"
+                              IsVisible="{Binding IsDemoModeEnabled}"
+                              Command="{Binding AcquireNextXrayCommand}"/>
+          <ucp:MenuSelectionItem Width="{StaticResource MenuViewMenuItemWidth}"
+                                 Height="{StaticResource MenuViewMenuItemHeight}"
+                                 PathIconData="{StaticResource PausePath}"
+                                 IsChecked="{Binding IsImageProcessingPaused}"
+                                 Command="{Binding ToggleImageProcessingPausedCommand}"
+                                 IsVisible="{Binding IsSuperUserMode}"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal"
+                          Spacing="4">
+          <ucp:MenuActionItem Width="{StaticResource MenuViewMenuItemWidth}"
+                              Height="{StaticResource MenuViewMenuItemHeight}"
+                              PathIconData="{StaticResource CameraPath}"
+                              Command="{Binding CreateScreenshotCommand}"
+                              PressedAnimationStateDuration="0:0:1">
+            <ucp:MenuActionItem.Styles>
+              <Style Selector=":pressedAnimation /template/ Border#PART_Border">
+                <Style.Animations>
+                  <Animation Duration="0:0:1.000">
+                    <KeyFrame Cue="0%">
+                      <Setter Property="Background" Value="{StaticResource BackgroundHighlightedDefault}"/>
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                      <Setter Property="Background" Value="{StaticResource BackgroundDefault}"/>
+                    </KeyFrame>
+                  </Animation>
+                </Style.Animations>
+              </Style>
+            </ucp:MenuActionItem.Styles>
+          </ucp:MenuActionItem>
+        </StackPanel>
+        
+        <StackPanel>
+          <ucp:MenuSelectionItem Width="{StaticResource MenuViewMenuItemWidth}"
+                                 Height="{StaticResource MenuViewMenuItemHeight}"
+                                 PathIconData="{StaticResource MenuPath}"
+                                 IsChecked="{Binding IsSystemMenuOpened}"
+                                 Command="{Binding ShowSystemMenuCommand}" />
+        </StackPanel>
+      </StackPanel>
+    </StackPanel>
+  </Grid>
+
+</UserControl>

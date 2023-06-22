@@ -1,0 +1,133 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:FontShift.Application.ViewModels"
+             xmlns:ucp="using:FontShift.Application.UserControls.Primitives"
+             xmlns:uc="using:FontShift.Application.UserControls"
+             xmlns:v="using:FontShift.Application.Views"
+             xmlns:con="using:FontShift.Application.UserControls.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="{StaticResource XrayGuidanceViewControlViewWidth}" d:DesignHeight="900"
+             x:DataType="vm:GuidanceControlPlatePreviewViewModel"
+             x:Class="FontShift.Application.Views.GuidanceControlPlatePreviewView">
+
+  <Design.DataContext>
+    <vm:GuidanceControlPlatePreviewViewModel/>
+  </Design.DataContext>
+
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="/GlobalResources.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </UserControl.Resources>
+
+  <UserControl.Styles>
+
+    <!-- Pill Button -->
+    <Style Selector="ucp|DefaultButton.normalSize">
+      <Setter Property="Width" Value="180" />
+    </Style>
+    <Style Selector="ucp|DefaultButton.largeSize">
+      <Setter Property="Width" Value="376" />
+    </Style>
+    <Style Selector="ucp|DefaultRadioButton.normalSize">
+      <Setter Property="Width" Value="180" />
+    </Style>
+    <Style Selector="ucp|DefaultRadioButton.largeSize">
+      <Setter Property="Width" Value="376" />
+    </Style>
+    <Style Selector="ucp|DefaultToggleButton.normalSize">
+      <Setter Property="Width" Value="180" />
+    </Style>
+    <Style Selector="ucp|DefaultToggleButton.largeSize">
+      <Setter Property="Width" Value="376" />
+    </Style>
+
+    <!-- Expander Button -->
+    <Style Selector="ucp|DefaultToggleButton.expanderButton">
+      <Setter Property="Text" Value="+" />
+      <Setter Property="Width" Value="32" />
+      <Setter Property="Height" Value="32" />
+      <Setter Property="HorizontalContentAlignment" Value="Right" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+
+      <Style Selector="^:checked">
+        <Setter Property="Text" Value="-" />
+      </Style>
+    </Style>
+
+    <!-- Image Box Button -->
+    <Style Selector="ucp|DefaultRadioButton.boxButton.hasImage">
+      <Setter Property="HorizontalContentAlignment" Value="Left" />
+      <Setter Property="IconMargin" Value="32 0 0 0" />
+      <Setter Property="TextMargin" Value="32 0 0 0" />
+      <Style Selector="^ Image#PART_Image">
+        <Setter Property="Stretch" Value="None"/>
+        <Setter Property="Width" Value="48" />
+      </Style>
+    </Style>
+
+    <Style Selector="ucp|DefaultToggleButton.boxButton.hasImage">
+      <Setter Property="HorizontalContentAlignment" Value="Left" />
+      <Setter Property="IconMargin" Value="32 0 0 0" />
+      <Setter Property="TextMargin" Value="32 0 0 0" />
+      <Style Selector="^ Image#PART_Image">
+        <Setter Property="Stretch" Value="None"/>
+        <Setter Property="Width" Value="48" />
+      </Style>
+    </Style>
+
+    <!-- Text Block -->
+    <Style Selector="TextBlock.titleText">
+      <Setter Property="Foreground" Value="{StaticResource FontColorHigh}" />
+      <Setter Property="FontSize" Value="{StaticResource FontSizeVeryHigh}" />
+      <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style Selector="TextBlock.headerText">
+      <Setter Property="Foreground" Value="{StaticResource FontColorHigh}" />
+      <Setter Property="FontSize" Value="{StaticResource FontSizeHigh}" />
+      <Setter Property="FontWeight" Value="Normal" />
+    </Style>
+
+    <Style Selector="TextBlock.normalText">
+      <Setter Property="Foreground" Value="{StaticResource FontColorHigh}" />
+      <Setter Property="FontSize" Value="{StaticResource FontSizeDefault}" />
+      <Setter Property="FontWeight" Value="Normal" />
+    </Style>
+
+    <Style Selector="TextBlock.sliderTickerText[IsEnabled=false]">
+      <Setter Property="Foreground" Value="{StaticResource BackgroundVeryHighColor}" />
+    </Style>
+
+    <Style Selector="TextBlock.highlightedText">
+      <Setter Property="Foreground" Value="{StaticResource FontColorHighlightedHigh}" />
+      <Setter Property="FontSize" Value="{StaticResource FontSizeDefault}" />
+      <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+  </UserControl.Styles>
+
+  <Grid Background="{StaticResource BackgroundDefault}">
+    <StackPanel Orientation="Vertical"
+                      Spacing="16">
+
+      <!-- Header -->
+      <StackPanel Orientation="Vertical"
+                          Spacing="16">
+        <StackPanel Orientation="Horizontal"
+                          Spacing="16">
+          <Image Source="{StaticResource GuidanceControlPlatePreviewViewManualControlsIcon}"
+                 Stretch="None" />
+          <TextBlock Classes="titleText"
+                     Text="{Binding Source={StaticResource GuidanceControlPlatePreviewViewManualControls}}" />
+        </StackPanel>
+      </StackPanel>
+
+      <!-- Controls -->
+
+    </StackPanel>
+  </Grid>
+</UserControl>

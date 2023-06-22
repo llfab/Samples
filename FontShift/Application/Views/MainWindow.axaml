@@ -1,0 +1,62 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:FontShift.Application.ViewModels"
+        xmlns:ucp="using:FontShift.Application.UserControls.Primitives"
+        xmlns:uc="using:FontShift.Application.UserControls"
+        xmlns:v="using:FontShift.Application.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        x:DataType="vm:MainWindowViewModel"
+        x:Class="FontShift.Application.Views.MainWindow"
+        Icon="/AssetsEmbedded/Images/fluoro-image.png"
+        Title="FontShift">
+
+  <Design.DataContext>
+    <vm:MainWindowViewModel />
+  </Design.DataContext>
+
+  <Window.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="/Application/Views/SystemMenuView.axaml"></ResourceInclude>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+    
+  </Window.Resources>
+
+  <Window.Styles>
+
+  </Window.Styles>
+
+  <Grid>
+    <Grid >
+      <!-- The main view in case the user is an administrator -->
+      <v:MainView DataContext="{Binding MainViewModel}" />
+    </Grid>
+
+    <!-- The view for any kind of dialog that will overlay the general view -->
+    <Grid>
+      <Grid.DataTemplates>
+        <StaticResource ResourceKey="SystemMenuTemplate" />
+      </Grid.DataTemplates>
+      <TransitioningContentControl Content="{Binding CurrentDialog}">
+        <TransitioningContentControl.PageTransition>
+          <CrossFade Duration="{StaticResource MainWindowDialogFadeDuration}" />
+        </TransitioningContentControl.PageTransition>
+      </TransitioningContentControl>
+    </Grid>
+
+    <!-- The view for any kind of dialog that will topmost -->
+    <Grid>
+      <Grid.DataTemplates>
+      </Grid.DataTemplates>
+      <TransitioningContentControl Content="{Binding CurrentTopMostDialog}">
+        <TransitioningContentControl.PageTransition>
+          <CrossFade Duration="{StaticResource MainWindowDialogFadeDuration}" />
+        </TransitioningContentControl.PageTransition>
+      </TransitioningContentControl>
+    </Grid>
+
+  </Grid>
+</Window>

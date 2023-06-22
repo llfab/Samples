@@ -1,0 +1,301 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:bui="BitsOfNature.UI"
+        xmlns:ucp="using:FontShift.Application.UserControls.Primitives"
+        xmlns:con="using:FontShift.Application.UserControls.Converters">
+  <Design.PreviewWith>
+    <Border Padding="16">
+      <StackPanel Orientation="Horizontal" Spacing="16">
+        <StackPanel Orientation="Vertical" Spacing="16" Padding="16">
+          <ucp:DefaultToggleButton Text="Unchecked Toggle" Width="300" Height="110" IsChecked="False" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Padding="8" Text="Checked Toggle with long long long Wrapping" Width="300" Height="110" IsChecked="True" />
+          <ucp:DefaultToggleButton Text="Disabled Unchecked" Width="300" Height="110" IsChecked="False" IsEnabled="False" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Text="Disabled Checked" Width="300" Height="110" IsChecked="True" IsEnabled="False" IconScaleFactor="0.75" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Text="Checked" Width="300" Height="150" IsChecked="True" Orientation="Vertical" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Text="Checked With Margin" Width="300" Height="150"
+                                   TextMargin="0 16 0 0"
+                                   IsChecked="True" Orientation="Vertical"
+                                   Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Width="300" Height="150" IsChecked="True" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Width="300" Height="150" Text="Icon Path Button" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Width="300" Height="150" IsEnabled="False" IsChecked="True" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Width="300" Height="150" IsEnabled="False" Text="Icon Path Button" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Spacing="16" Padding="16" Background="{StaticResource BackgroundDefault}">
+          <ucp:DefaultToggleButton Classes="pillButton" Text="Unchecked Toggle" Width="300" Height="110" IsChecked="False" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="pillButton" Padding="8" Text="Checked Toggle with long long long Wrapping" Width="300" Height="110" IsChecked="True" />
+          <ucp:DefaultToggleButton Classes="pillButton" Text="Disabled Unchecked" Width="300" Height="110" IsChecked="False" IsEnabled="False" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="pillButton" Text="Disabled Checked" Width="300" Height="110" IsChecked="True" IsEnabled="False" IconScaleFactor="0.75" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="pillButton" Text="Checked" Width="300" Height="150" IsChecked="True" Orientation="Vertical" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="pillButton" Text="Checked With Margin" Width="300" Height="150"
+                                   TextMargin="0 16 0 0"
+                                   IsChecked="True" Orientation="Vertical"
+                                   Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="pillButton" Width="300" Height="150" IsChecked="True" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Classes="pillButton" Width="300" Height="150" Text="Icon Path Button" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Classes="pillButton" Width="300" Height="150" IsEnabled="False" IsChecked="True" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Classes="pillButton" Width="300" Height="150" IsEnabled="False" Text="Icon Path Button" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Spacing="16" Padding="16" Background="{StaticResource BackgroundDefault}">
+          <ucp:DefaultToggleButton Classes="boxButton" Text="Unchecked Toggle" Width="300" Height="110" IsChecked="False" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="boxButton" Padding="8" Text="Checked Toggle with long long long Wrapping" Width="300" Height="110" IsChecked="True" />
+          <ucp:DefaultToggleButton Classes="boxButton" Text="Disabled Unchecked" Width="300" Height="110" IsChecked="False" IsEnabled="False" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="boxButton" Text="Disabled Checked" Width="300" Height="110" IsChecked="True" IsEnabled="False" IconScaleFactor="0.75" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="boxButton" Text="Checked" Width="300" Height="150" IsChecked="True" Orientation="Vertical" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="boxButton" Text="Checked With Margin" Width="300" Height="150"
+                                   TextMargin="0 16 0 0"
+                                   IsChecked="True" Orientation="Vertical"
+                                   Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="boxButton" Width="300" Height="150" IsChecked="True" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Classes="boxButton" Width="300" Height="150" Text="Icon Path Button" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Classes="boxButton" Width="300" Height="150" IsEnabled="False" IsChecked="True" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Classes="boxButton" Width="300" Height="150" IsEnabled="False" Text="Icon Path Button" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Spacing="16" Padding="16" Background="{StaticResource BackgroundDefault}">
+          <ucp:DefaultToggleButton Classes="expanderButton" Text="Unchecked Toggle" Width="300" Height="110" IsChecked="False" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="expanderButton" Padding="8" Text="Checked Toggle with long long long Wrapping" Width="300" Height="110" IsChecked="True" />
+          <ucp:DefaultToggleButton Classes="expanderButton" Text="Disabled Unchecked" Width="300" Height="110" IsChecked="False" IsEnabled="False" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="expanderButton" Text="Disabled Checked" Width="300" Height="110" IsChecked="True" IsEnabled="False" IconScaleFactor="0.75" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="expanderButton" Text="Checked" Width="300" Height="150" IsChecked="True" Orientation="Vertical" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="expanderButton" Text="Checked With Margin" Width="300" Height="150"
+                                   TextMargin="0 16 0 0"
+                                   IsChecked="True" Orientation="Vertical"
+                                   Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+          <ucp:DefaultToggleButton Classes="expanderButton" Width="300" Height="150" IsChecked="True" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Classes="expanderButton" Width="300" Height="150" Text="Icon Path Button" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Classes="expanderButton" Width="300" Height="150" IsEnabled="False" IsChecked="True" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+          <ucp:DefaultToggleButton Classes="expanderButton" Width="300" Height="150" IsEnabled="False" Text="Icon Path Button" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+        </StackPanel>
+
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <Styles.Resources>
+    <con:BoundsCornerRadiusConverter x:Key="boundsCornerRadiusConverter" />
+  </Styles.Resources>
+
+  <Style Selector="ucp|DefaultToggleButton">
+    <!-- Set Defaults -->
+    <Setter Property="FontSize" Value="{StaticResource FontSizeDefault}" />
+    <Setter Property="Height" Value="{StaticResource DefaultButtonHeight}" />
+    <Setter Property="Width" Value="{StaticResource DefaultButtonWidth}" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="IsThreeState" Value="False" />
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border  x:Name="PART_Border"
+                 Padding="{TemplateBinding Padding}">
+          <StackPanel 
+                            Orientation="{TemplateBinding Orientation}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Spacing="16">
+            <Image x:Name="PART_Image" 
+                   Stretch="Uniform" 
+                   StretchDirection="Both"
+                   Margin="{TemplateBinding IconMargin}"
+                   Width="{TemplateBinding IconWidth}" 
+                   Height="{TemplateBinding IconHeight}"
+                   Source="{TemplateBinding Icon}"
+                   HorizontalAlignment="{TemplateBinding IconHorizontalAlignment}" 
+                   VerticalAlignment="{TemplateBinding IconVerticalAlignment}"
+                   IsVisible="{Binding $self.Source, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+            <PathIcon x:Name="PART_PathIcon" 
+                      Margin="{TemplateBinding PathIconMargin}"
+                      Width="{TemplateBinding PathIconWidth}" 
+                      Height="{TemplateBinding PathIconHeight}"
+                      Data="{TemplateBinding PathIconData}"
+                      HorizontalAlignment="{TemplateBinding PathIconHorizontalAlignment}" 
+                      VerticalAlignment="{TemplateBinding PathIconVerticalAlignment}"
+                      IsVisible="{Binding $self.Data, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+            <TextBlock x:Name="PART_TextBlock" 
+                       Text="{TemplateBinding Text}"
+                       Margin="{TemplateBinding TextMargin}"
+                       TextWrapping="WrapWithOverflow"
+                       HorizontalAlignment="{TemplateBinding TextHorizontalAlignment}" 
+                       VerticalAlignment="{TemplateBinding TextVerticalAlignment}"
+                       IsVisible="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+          </StackPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Default Style -->
+    <Style Selector="^ /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundHighlightedDefault}" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+
+      <Style Selector="^ TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource FontColorVeryHigh}" />
+      </Style>
+      <Style Selector="^ PathIcon">
+        <Setter Property="Foreground" Value="{StaticResource FontColorVeryHigh}" />
+      </Style>
+    </Style>
+
+    <Style Selector="^:disabled /template/ Border#PART_Border">
+      <Style Selector="^ TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource FontColorHigh}" />
+      </Style>
+      <Style Selector="^ PathIcon">
+        <Setter Property="Foreground" Value="{StaticResource FontColorHigh}" />
+      </Style>
+      <Style Selector="^ Image">
+        <Setter Property="Opacity" Value="{StaticResource DefaultButtonDisabledImageOpacity}" />
+      </Style>
+    </Style>
+
+    <Style Selector="^:checked /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundHighlightedDefault}" />
+    </Style>
+
+    <Style Selector="^:unchecked /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundVeryHigh}" />
+    </Style>
+
+    <Style Selector="^:checked:disabled /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundHighlightedLow}" />
+    </Style>
+
+    <Style Selector="^:unchecked:disabled /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundHigh}" />
+    </Style>
+
+  </Style>
+
+  <!-- Pill Style -->
+  <Style Selector="ucp|DefaultToggleButton.pillButton">
+
+    <Setter Property="Height" Value="{StaticResource DefaultPillButtonHeight}"/>
+
+    <Style Selector="^ /template/ Border#PART_Border">
+      <Setter Property="BorderThickness" Value="2" />
+      <Setter Property="CornerRadius" Value="{Binding $self.Bounds, Converter={StaticResource boundsCornerRadiusConverter}, ConverterParameter=0.5}" />
+      <!-- Should be dependent on height -->
+      <Setter Property="Background" Value="{StaticResource BackgroundHighlightedDefault}" />
+      <Setter Property="BorderBrush" Value="{StaticResource BackgroundHighlightedHigh}" />
+
+      <Style Selector="^ TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource FontColorVeryHigh}" />
+      </Style>
+      <Style Selector="^ PathIcon">
+        <Setter Property="Foreground" Value="{StaticResource FontColorVeryHigh}" />
+      </Style>
+    </Style>
+
+    <Style Selector="^:disabled /template/ Border#PART_Border">
+      <Style Selector="^ TextBlock">
+        <Setter Property="Opacity" Value="{StaticResource DefaultButtonDisabledImageOpacity}" />
+      </Style>
+      <Style Selector="^ PathIcon">
+        <Setter Property="Opacity" Value="{StaticResource DefaultButtonDisabledImageOpacity}" />
+      </Style>
+      <Style Selector="^ Image">
+        <Setter Property="Opacity" Value="{StaticResource DefaultButtonDisabledImageOpacity}" />
+      </Style>
+    </Style>
+
+    <Style Selector="^:checked /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundHighlightedDefault}" />
+      <Setter Property="BorderBrush" Value="{StaticResource BackgroundHighlightedHigh}" />
+    </Style>
+
+    <Style Selector="^:unchecked /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundHigh}" />
+      <Setter Property="BorderBrush" Value="{StaticResource BackgroundVeryHigh}" />
+    </Style>
+
+    <Style Selector="^:checked:disabled /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundHighlightedLow}" />
+      <Setter Property="BorderBrush" Value="{StaticResource BackgroundHighlightedDefault}" />
+    </Style>
+
+    <Style Selector="^:unchecked:disabled /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundDefault}" />
+      <Setter Property="BorderBrush" Value="{StaticResource BackgroundHigh}" />
+    </Style>
+
+  </Style>
+
+  <!-- Box Style -->
+  <Style Selector="ucp|DefaultToggleButton.boxButton">
+
+    <Setter Property="Height" Value="{StaticResource DefaultBoxButtonHeight}"/>
+
+    <Style Selector="^ /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundLow}" />
+      <Setter Property="BorderBrush" Value="{StaticResource BackgroundVeryHigh}" />
+      <Setter Property="BorderThickness" Value="2" />
+      <Setter Property="CornerRadius" Value="2" />
+
+      <Style Selector="^ TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource FontColorVeryHigh}" />
+      </Style>
+      <Style Selector="^ PathIcon">
+        <Setter Property="Foreground" Value="{StaticResource FontColorVeryHigh}" />
+      </Style>
+    </Style>
+
+    <Style Selector="^:disabled /template/ Border#PART_Border">
+      <Style Selector="^ TextBlock">
+        <Setter Property="Opacity" Value="{StaticResource DefaultControlButtonDisabledImageOpacity}" />
+      </Style>
+      <Style Selector="^ PathIcon">
+        <Setter Property="Opacity" Value="{StaticResource DefaultControlButtonDisabledImageOpacity}" />
+      </Style>
+      <Style Selector="^ Image">
+        <Setter Property="Opacity" Value="{StaticResource DefaultControlButtonDisabledImageOpacity}" />
+      </Style>
+    </Style>
+
+    <Style Selector="^:checked /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundHighlightedVeryLow}" />
+      <Setter Property="BorderBrush" Value="{StaticResource BackgroundHighlightedHigh}" />
+    </Style>
+
+    <Style Selector="^:checked:disabled /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundHighlightedVeryLow}" />
+      <Setter Property="BorderBrush" Value="{StaticResource BackgroundHighlightedLow}" />
+    </Style>
+
+  </Style>
+
+  <!-- Expander Style -->
+  <Style Selector="ucp|DefaultToggleButton.expanderButton">
+
+    <Style Selector="^ /template/ Border#PART_Border">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="{StaticResource BackgroundVeryHigh}" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="CornerRadius" Value="0" />
+
+      <Style Selector="^ TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource FontColorVeryLow}" />
+      </Style>
+      <Style Selector="^ PathIcon">
+        <Setter Property="Foreground" Value="{StaticResource FontColorVeryLow}" />
+      </Style>
+    </Style>
+
+    <Style Selector="^:disabled /template/ Border#PART_Border">
+      <Style Selector="^ TextBlock">
+        <Setter Property="Opacity" Value="{StaticResource DefaultControlButtonDisabledImageOpacity}" />
+      </Style>
+      <Style Selector="^ PathIcon">
+        <Setter Property="Opacity" Value="{StaticResource DefaultControlButtonDisabledImageOpacity}" />
+      </Style>
+      <Style Selector="^ Image">
+        <Setter Property="Opacity" Value="{StaticResource DefaultControlButtonDisabledImageOpacity}" />
+      </Style>
+    </Style>
+
+  </Style>
+
+</Styles>

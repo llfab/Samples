@@ -1,0 +1,69 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ucp="using:FontShift.Application.UserControls.Primitives"
+                    xmlns:uc="using:FontShift.Application.UserControls"
+                    xmlns:vm="using:FontShift.Application.ViewModels"
+                    xmlns:v="using:FontShift.Application.Views"
+                    xmlns:con="using:FontShift.Application.UserControls.Converters">
+
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="/GlobalResources.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <!-- Uncomment below to test svg graphics -->
+  <!--<con:SvgConverter x:Key="svg" />-->
+
+  <Design.PreviewWith>
+    <StackPanel Orientation="Vertical" Spacing="16" Background="Black">
+      <Grid Name="parent" Width="1280" Height="640">
+        <Grid.DataContext>
+          <vm:SystemMenuViewModel />
+        </Grid.DataContext>
+        <Image Stretch="UniformToFill" Source="/AssetsEmbedded/Images/stryker-logo-white.png" />
+        <ContentControl Content="{Binding #parent.DataContext}" ContentTemplate="{DynamicResource SystemMenuTemplate}" />
+      </Grid>
+    </StackPanel>
+  </Design.PreviewWith>
+
+  <DataTemplate DataType="{x:Type vm:SystemMenuViewModel}" x:Key="SystemMenuTemplate">
+    <Grid>
+      <Grid.Styles>
+        <Style Selector="ucp|MenuActionItem.systemMenu">
+          <Setter Property="Width" Value="{StaticResource SystemMenuMenuItemWidth}" />
+          <Setter Property="Height" Value="{StaticResource MenuViewMenuItemHeight}" />
+          <Setter Property="HorizontalContentAlignment" Value="Left" />
+          <Setter Property="PathIconMargin" Value="32 0 0 0" />
+          <!-- Uncomment below to test svg graphics -->
+          <!--<Setter Property="IconMargin" Value="32 0 0 0" />-->
+          <Setter Property="TextMargin" Value="32 0 0 0" />
+        </Style>
+      </Grid.Styles>
+      <uc:BackgroundActionPanel Command="{Binding CloseMenuCommand}" />
+      <StackPanel Orientation="Vertical" >
+        <Grid Height="{StaticResource MenuViewMenuItemHeight}" />
+        <StackPanel 
+                          Background="{StaticResource BackgroundLow}"
+                          Orientation="Vertical" Spacing="4"
+                          HorizontalAlignment="Right" VerticalAlignment="Top">
+          <ucp:MenuActionItem Classes="systemMenu"
+                              Text="{Binding Source={StaticResource SystemMenuAbout}}"
+                              PathIconData="{StaticResource InfoPath}"
+                              Command="{Binding ShowInfoCommand}"/>
+          <ucp:MenuActionItem Classes="systemMenu"
+                              Text="{Binding Source={StaticResource SystemMenuSettings}}"
+                              PathIconData="{StaticResource SettingsPath}"
+                              Command="{Binding ShowInfoCommand}"/>
+          <!-- Uncomment below to test svg graphics -->
+          <!--<ucp:MenuActionItem Classes="systemMenu"
+                              Text="{Binding Source={StaticResource SystemMenuSettings}}"
+                              Icon="{Binding Source={StaticResource SystemMenuSettingIcon}, Converter={StaticResource svg}}"
+                              Command="{Binding ShowInfoCommand}"/>-->
+          <ucp:MenuActionItem Classes="systemMenu"
+                              Text="{Binding Source={StaticResource SystemMenuExit}}"
+                              PathIconData="{StaticResource ClosePath}"
+                              Command="{Binding ExitCommand}"/>
+        </StackPanel>
+      </StackPanel>
+    </Grid>
+  </DataTemplate>
+</ResourceDictionary>

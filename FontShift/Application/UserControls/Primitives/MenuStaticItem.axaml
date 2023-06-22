@@ -1,0 +1,86 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:bui="BitsOfNature.UI"
+        xmlns:ucp="using:FontShift.Application.UserControls.Primitives">
+  <Design.PreviewWith>
+    <Border Padding="4">
+      <StackPanel Orientation="Vertical" Spacing="4">
+        <ucp:MenuStaticItem Text="My Button Text" Width="300" Height="110" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+        <ucp:MenuStaticItem Padding="8" Text="My Button Text long long long long" Width="300" Height="110"  />
+        <ucp:MenuStaticItem Text="" Width="300" Height="110" Icon="avares://FontShift/AssetsEmbedded/Images/icon-shutdown.png" />
+        <ucp:MenuStaticItem Width="300" Height="150" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+        <ucp:MenuStaticItem Width="300" Height="150" Text="Icon Path Button" Orientation="Vertical" PathIconData="{StaticResource CameraPath}" PathIconWidth="64" PathIconHeight="64" />
+
+        <!-- Aligned items -->
+        <ucp:MenuStaticItem Text="Short" Width="300" Height="80" HorizontalAlignment="Left" PathIconMargin="16 0 0 0" PathIconData="{StaticResource SettingsPath}" />
+        <ucp:MenuStaticItem Text="Medium Text" Width="300" Height="80" HorizontalAlignment="Left" PathIconMargin="16 0 0 0" PathIconData="{StaticResource InfoPath}" />
+        <ucp:MenuStaticItem Text="Longer long Text" Width="300" Height="80" HorizontalAlignment="Left" PathIconMargin="16 0 0 0" PathIconData="{StaticResource ClosePath}" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <Style Selector="ucp|MenuStaticItem">
+    <!-- Set Defaults -->
+    <Setter Property="FontSize" Value="{StaticResource FontSizeHigh}" />
+    <Setter Property="Height" Value="{StaticResource DefaultButtonHeight}" />
+    <Setter Property="Width" Value="{StaticResource DefaultButtonWidth}" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border x:Name="PART_Border">
+          <StackPanel x:Name="PART_Panel" 
+                            Spacing="16"
+                            Orientation="Horizontal" >
+            <StackPanel 
+                              Orientation="{TemplateBinding Orientation}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Spacing="16">
+              <Image x:Name="PART_Image" 
+                     Stretch="Uniform" 
+                     StretchDirection="Both"
+                     Margin="{TemplateBinding IconMargin}"
+                     Width="{TemplateBinding IconWidth}" 
+                     Height="{TemplateBinding IconHeight}"
+                     Source="{TemplateBinding Icon}"
+                     HorizontalAlignment="{TemplateBinding IconHorizontalAlignment}"
+                     VerticalAlignment="{TemplateBinding IconVerticalAlignment}"
+                     IsVisible="{Binding $self.Source, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+              <PathIcon x:Name="PART_PathIcon" 
+                        Margin="{TemplateBinding PathIconMargin}"
+                        Width="{TemplateBinding PathIconWidth}" 
+                        Height="{TemplateBinding PathIconHeight}"
+                        Data="{TemplateBinding PathIconData}"
+                        HorizontalAlignment="{TemplateBinding PathIconHorizontalAlignment}"
+                        VerticalAlignment="{TemplateBinding PathIconVerticalAlignment}"
+                        IsVisible="{Binding $self.Data, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+              <TextBlock x:Name="PART_TextBlock" 
+                         Text="{TemplateBinding Text}"
+                         Margin="{TemplateBinding TextMargin}"
+                         TextWrapping="WrapWithOverflow"
+                         HorizontalAlignment="{TemplateBinding TextHorizontalAlignment}"
+                         VerticalAlignment="{TemplateBinding TextVerticalAlignment}"
+                         IsVisible="{Binding $self.Text, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{StaticResource BackgroundDefault}" />
+    </Style>
+
+    <Style Selector="^ /template/ StackPanel#PART_Panel">
+      <Style Selector="^ TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource FontColorVeryHigh}" />
+      </Style>
+      <Style Selector="^ PathIcon">
+        <Setter Property="Foreground" Value="{StaticResource FontColorVeryHigh}" />
+      </Style>
+    </Style>
+
+  </Style>
+</Styles>
