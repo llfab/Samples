@@ -6,5 +6,7 @@
     <!-- RequestedThemeVariant="Dark" -->
     <FluentTheme/>
     <!--<FluentTheme Mode="Dark"/>-->
+      <StyleInclude Source="/AssetsEmbedded/Styles/CommonStyles.axaml" />
+      <StyleInclude Source="/AssetsEmbedded/Styles/SliderStyles.axaml" />
   </Application.Styles>
 </Application>

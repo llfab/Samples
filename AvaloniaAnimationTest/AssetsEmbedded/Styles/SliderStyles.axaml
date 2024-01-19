@@ -1,0 +1,161 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="using:System">
+  <Design.PreviewWith>
+    <Border Margin="20" Width="600" Height="1200">
+      <DockPanel LastChildFill="True">
+        <StackPanel Spacing="10" DockPanel.Dock="Top">
+          <Slider Value="50" />
+          <Slider IsDirectionReversed="True" Value="50" />
+          <Slider Value="50" TickPlacement="TopLeft" TickFrequency="10"/>
+          <Slider Value="50" TickPlacement="BottomRight" TickFrequency="10"/>
+          <Slider Value="50" TickPlacement="Outside" Ticks="50"/>
+          <Slider IsEnabled="False" Value="50" />
+          <Slider Value="50">
+            <DataValidationErrors.Error>
+              <sys:Exception>
+                <x:Arguments>
+                  <x:String>Error</x:String>
+                </x:Arguments>
+              </sys:Exception>
+            </DataValidationErrors.Error>
+          </Slider>
+        </StackPanel>
+        <StackPanel Spacing="10" Orientation="Horizontal">
+          <Slider Value="50" Orientation="Vertical" />
+          <Slider IsDirectionReversed="True" Value="50" Orientation="Vertical" />
+          <Slider IsEnabled="False" Orientation="Vertical" Value="50" />
+          <Slider Value="50" TickPlacement="TopLeft" TickFrequency="10" Orientation="Vertical" />
+          <Slider Value="50" TickPlacement="BottomRight" TickFrequency="5" Orientation="Vertical" />
+          <Slider Value="50" TickPlacement="Outside" TickFrequency="20" Orientation="Vertical" />
+        </StackPanel>
+      </DockPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <Styles.Resources>
+    <Thickness x:Key="SliderTopHeaderMargin">0,0,0,4</Thickness>
+    <GridLength x:Key="SliderPreContentMargin">15</GridLength>
+    <GridLength x:Key="SliderPostContentMargin">15</GridLength>
+    <x:Double x:Key="SliderHorizontalHeight">48</x:Double>
+    <x:Double x:Key="SliderVerticalWidth">48</x:Double>
+    
+    <CornerRadius x:Key="SliderThumbCornerRadius">4</CornerRadius>
+    <x:Double x:Key="SliderHorizontalThumbWidth">64</x:Double>
+    <x:Double x:Key="SliderHorizontalThumbHeight">64</x:Double>
+    <x:Double x:Key="SliderVerticalThumbWidth">64</x:Double>
+    <x:Double x:Key="SliderVerticalThumbHeight">64</x:Double>
+
+    <x:Double x:Key="SliderTrackThemeHeight">16</x:Double>
+    <x:Double x:Key="SliderTrackThemeWidth">16</x:Double>
+
+    <x:Double x:Key="SliderOutsideTickBarThemeHeight">4</x:Double>
+
+    <SolidColorBrush x:Key="SliderContainerBackground" Color="{StaticResource TransparentBlackColor}" />
+    <SolidColorBrush x:Key="SliderContainerBackgroundPointerOver" Color="{StaticResource TransparentBlackColor}" />
+    <SolidColorBrush x:Key="SliderContainerBackgroundPressed" Color="{StaticResource TransparentBlackColor}" />
+    <SolidColorBrush x:Key="SliderContainerBackgroundDisabled" Color="{StaticResource TransparentBlackColor}" />
+    <SolidColorBrush x:Key="SliderThumbBackground" Color="{StaticResource BackgroundHighlightedDefaultColor}" />
+    <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="{StaticResource BackgroundHighlightedDefaultColor}" />
+    <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{StaticResource BackgroundHighlightedDefaultColor}" />
+    <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="{StaticResource BackgroundDefaultColor}"  />
+    <SolidColorBrush x:Key="SliderTrackFill" Color="{StaticResource BackgroundVeryHighColor}" />
+    <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="{StaticResource BackgroundVeryHighColor}" />
+    <SolidColorBrush x:Key="SliderTrackFillPressed" Color="{StaticResource BackgroundVeryHighColor}" />
+    <SolidColorBrush x:Key="SliderTrackFillDisabled" Color="{StaticResource BackgroundHighColor}" />
+    <SolidColorBrush x:Key="SliderTrackValueFill" Color="{StaticResource BackgroundHighlightedDefaultColor}" />
+    <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="{StaticResource BackgroundHighlightedDefaultColor}" />
+    <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="{StaticResource BackgroundHighlightedDefaultColor}" />
+    <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource BackgroundHighlightedVeryLowColor}" />
+    <SolidColorBrush x:Key="SliderTickBarFill" Color="{StaticResource FontForegroundHighColor}" />
+    <SolidColorBrush x:Key="SliderTickBarFillDisabled" Color="{StaticResource FontForegroundDefaultColor}" />
+    <SolidColorBrush x:Key="SliderInlineTickBarFill" Color="{StaticResource BackgroundVeryHighColor}" />
+  
+    
+  </Styles.Resources>
+
+  <Style Selector="Slider">
+
+    <Style Selector="^:horizontal">
+      <Style Selector="^ Thumb">
+        <Style Selector="^ /template/ Border">
+          <Setter Property="BorderThickness" Value="2" />
+          <Setter Property="BorderBrush" Value="{StaticResource BackgroundHighlightedHighColor}" />
+        </Style>
+      </Style>
+    </Style>
+    <Style Selector="^:vertical">
+      <Style Selector="^ Thumb">
+        <Style Selector="^ /template/ Border">
+          <Setter Property="BorderThickness" Value="2" />
+          <Setter Property="BorderBrush" Value="{StaticResource BackgroundHighlightedHighColor}" />
+        </Style>
+      </Style>
+    </Style>
+    <Style Selector="^:disabled">
+      <Style Selector="^ Thumb">
+        <Style Selector="^ /template/ Border">
+          <Setter Property="BorderThickness" Value="2" />
+          <Setter Property="BorderBrush" Value="{StaticResource BackgroundHigh}" />
+        </Style>
+      </Style>
+    </Style>
+
+    <!-- Normal Direction -->
+    <Style Selector="^[IsDirectionReversed=false]">
+      <Style Selector="^:horizontal">
+        <Style Selector="^ RepeatButton#PART_DecreaseButton">
+          <Style Selector="^ /template/ Border#TrackBackground">
+            <Setter Property="CornerRadius" Value="8 0 0 8" />
+          </Style>
+        </Style>
+        <Style Selector="^ RepeatButton#PART_IncreaseButton">
+          <Style Selector="^ /template/ Border#TrackBackground">
+            <Setter Property="CornerRadius" Value="0 8 8 0" />
+          </Style>
+        </Style>
+      </Style>
+      <Style Selector="^:vertical">
+        <Style Selector="^ RepeatButton#PART_DecreaseButton">
+          <Style Selector="^ /template/ Border#TrackBackground">
+            <Setter Property="CornerRadius" Value="0 0 8 8" />
+          </Style>
+        </Style>
+        <Style Selector="^ RepeatButton#PART_IncreaseButton">
+          <Style Selector="^ /template/ Border#TrackBackground">
+            <Setter Property="CornerRadius" Value="8 8 0 0" />
+          </Style>
+        </Style>
+      </Style>
+    </Style>
+
+    <!-- Reverse Direction -->
+    <Style Selector="^[IsDirectionReversed=true]">
+      <Style Selector="^:horizontal">
+        <Style Selector="^ RepeatButton#PART_DecreaseButton">
+          <Style Selector="^ /template/ Border#TrackBackground">
+            <Setter Property="CornerRadius" Value="0 8 8 0" />
+          </Style>
+        </Style>
+        <Style Selector="^ RepeatButton#PART_IncreaseButton">
+          <Style Selector="^ /template/ Border#TrackBackground">
+            <Setter Property="CornerRadius" Value="8 0 0 8" />
+          </Style>
+        </Style>
+      </Style>
+      <Style Selector="^:vertical">
+        <Style Selector="^ RepeatButton#PART_DecreaseButton">
+          <Style Selector="^ /template/ Border#TrackBackground">
+            <Setter Property="CornerRadius" Value="8 8 0 0" />
+          </Style>
+        </Style>
+        <Style Selector="^ RepeatButton#PART_IncreaseButton">
+          <Style Selector="^ /template/ Border#TrackBackground">
+            <Setter Property="CornerRadius" Value="0 0 8 8" />
+          </Style>
+        </Style>
+      </Style>
+    </Style>
+
+  </Style>
+</Styles>

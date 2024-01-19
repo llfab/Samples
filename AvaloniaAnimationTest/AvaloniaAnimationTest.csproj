@@ -4,13 +4,25 @@
         <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.0-rc1.1" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.0-rc1.1" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-rc1.1" />
+        <PackageReference Include="Avalonia" Version="11.0.6" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.6" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.6" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.0-rc1.1" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.6" />
     </ItemGroup>
+
     <ItemGroup>
-      <UpToDateCheckInput Remove="AnimationControl.axaml" />
+        <AvaloniaResource Include="AssetsEmbedded\**" />
     </ItemGroup>
+
+    <ItemGroup>
+      <AvaloniaXaml Remove="AssetsEmbedded\Styles\CommonStyles.axaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AvaloniaResource Update="AssetsEmbedded\Styles\CommonStyles.axaml">
+        <SubType>Designer</SubType>
+      </AvaloniaResource>
+    </ItemGroup>
+
 </Project>

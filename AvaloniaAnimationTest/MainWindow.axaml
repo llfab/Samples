@@ -33,9 +33,42 @@
             </Style>
         </Style>
 
+        <!-- Slider Size -->
+        <Style Selector="Slider.normalSize">
+            <Setter Property="Width" Value="180" />
+        </Style>
+        <Style Selector="Slider.largeSize">
+            <Setter Property="Width" Value="376" />
+        </Style>
+
     </Window.Styles>
 
     <TabControl>
+        <TabItem Header="Slider">
+            <!-- Controls -->
+            <StackPanel Orientation="Vertical"
+                              Spacing="16">
+
+                <!-- Manual Plate Translation -->
+                <StackPanel Orientation="Vertical"
+                                  Spacing="16"
+                                  Margin="0 32 0 0">
+                    <StackPanel Orientation="Horizontal"
+                                      Spacing="16">
+                        <Slider Classes="largeSize"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                IsEnabled="{Binding IsManualPlatePositioningAllowed}"
+                                Value="{Binding ManualPlateTranslationalRelativeShift}"
+                                Minimum="-1"
+                                Maximum="1"
+                                TickPlacement="TopLeft"
+                                Ticks="0"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
         <TabItem Header="CustomControl">
             <local:MyCustomControl Width="400" Height="400"/>
         </TabItem>
