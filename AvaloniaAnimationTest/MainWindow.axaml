@@ -59,8 +59,6 @@
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
-                                IsEnabled="{Binding IsManualPlatePositioningAllowed}"
-                                Value="{Binding ManualPlateTranslationalRelativeShift}"
                                 Minimum="-1"
                                 Maximum="1"
                                 TickPlacement="TopLeft"

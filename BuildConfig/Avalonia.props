@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <AvaloniaVersion>11.0.9</AvaloniaVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <BuildAvaloniaFromSource>false</BuildAvaloniaFromSource>
+	<!-- run (on Windows): subst A: <AvaloniaRootFolder> to make this reference work -->
+    <AvaloniaRootFolder>A:</AvaloniaRootFolder>	
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(BuildAvaloniaFromSource)' == 'true'">
+    <IncludeAvaloniaGenerators>true</IncludeAvaloniaGenerators>
+  </PropertyGroup>
+
+</Project>

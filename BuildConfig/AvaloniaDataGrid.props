@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <!-- Default Nuget consumption -->
+  <ItemGroup Condition="'$(BuildAvaloniaFromSource)' != 'true'">
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
+  </ItemGroup>
+
+  <!-- Build Avalonia from source -->
+  <ItemGroup Condition="'$(BuildAvaloniaFromSource)' == 'true'">
+    <ProjectReference Include="$(AvaloniaRootFolder)\src\Avalonia.Controls.DataGrid\Avalonia.Controls.DataGrid.csproj"/>
+  </ItemGroup>
+
+</Project>

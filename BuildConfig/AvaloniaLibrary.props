@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <Import Project="Avalonia.props" />
+
+  <!-- Default Nuget consumption -->
+  <ItemGroup Condition="'$(BuildAvaloniaFromSource)' != 'true'">
+    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+  </ItemGroup>
+
+  <!-- Build Avalonia from source -->
+  <Import Condition="'$(BuildAvaloniaFromSource)' == 'true'" Project="$(AvaloniaRootFolder)\build\ReferenceCoreLibraries.props"/>
+  <Import Condition="'$(BuildAvaloniaFromSource)' == 'true'" Project="$(AvaloniaRootFolder)\build\BuildTargets.targets"/>
+  <Import Condition="'$(BuildAvaloniaFromSource)' == 'true'" Project="$(AvaloniaRootFolder)\build\SourceGenerators.props" />
+
+</Project>
