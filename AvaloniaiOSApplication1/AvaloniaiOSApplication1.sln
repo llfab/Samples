@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaiOSApplication1", "AvaloniaiOSApplication1\AvaloniaiOSApplication1\AvaloniaiOSApplication1.csproj", "{BF18A49B-5CD8-4849-AA83-AE4C0C40E562}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaiOSApplication1.Desktop", "AvaloniaiOSApplication1\AvaloniaiOSApplication1.Desktop\AvaloniaiOSApplication1.Desktop.csproj", "{9743AB5B-FB75-4E83-B9F6-E60ACE91597C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaiOSApplication1.iOS", "AvaloniaiOSApplication1\AvaloniaiOSApplication1.iOS\AvaloniaiOSApplication1.iOS.csproj", "{F2D70D4B-7235-4A2C-8F80-C3BEC67F781D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF18A49B-5CD8-4849-AA83-AE4C0C40E562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF18A49B-5CD8-4849-AA83-AE4C0C40E562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF18A49B-5CD8-4849-AA83-AE4C0C40E562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF18A49B-5CD8-4849-AA83-AE4C0C40E562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9743AB5B-FB75-4E83-B9F6-E60ACE91597C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9743AB5B-FB75-4E83-B9F6-E60ACE91597C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9743AB5B-FB75-4E83-B9F6-E60ACE91597C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9743AB5B-FB75-4E83-B9F6-E60ACE91597C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D70D4B-7235-4A2C-8F80-C3BEC67F781D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D70D4B-7235-4A2C-8F80-C3BEC67F781D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D70D4B-7235-4A2C-8F80-C3BEC67F781D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F2D70D4B-7235-4A2C-8F80-C3BEC67F781D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D70D4B-7235-4A2C-8F80-C3BEC67F781D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D70D4B-7235-4A2C-8F80-C3BEC67F781D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
