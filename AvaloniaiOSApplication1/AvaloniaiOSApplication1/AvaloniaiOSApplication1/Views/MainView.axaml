@@ -13,8 +13,14 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-    <StackPanel>
-        <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <views:NativeEmbedView />
-    </StackPanel>
+    <Grid RowDefinitions="Auto,*">
+    
+        <TextBlock Grid.Row="0" Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Border Grid.Row="1" 
+                BorderBrush="LightGray"
+                BorderThickness="2">
+            <views:NativeEmbedView  />
+        </Border>
+   
+    </Grid>
   </UserControl>

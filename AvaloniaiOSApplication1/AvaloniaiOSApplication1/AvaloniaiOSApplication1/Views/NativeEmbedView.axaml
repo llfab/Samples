@@ -5,7 +5,8 @@
              xmlns:views="clr-namespace:AvaloniaiOSApplication1.Views"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaiOSApplication1.Views.NativeEmbedView">
-    <Grid>
-        <views:EmbeddedControl/>
+    <Grid Name="Root">
+        <views:EmbeddedControl Width="{Binding #Root.Bounds.Width}" 
+                               Height="{Binding #Root.Bounds.Height}"/>
     </Grid>
 </UserControl>

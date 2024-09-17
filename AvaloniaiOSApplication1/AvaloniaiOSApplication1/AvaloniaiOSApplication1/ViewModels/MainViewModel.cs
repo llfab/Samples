@@ -2,7 +2,7 @@
 
 public partial class MainViewModel : ViewModelBase
 {
-    private string _greeting = "Welcome to Avalonia!";
+    private string _greeting = "Welcome to ARKit in Avalonia!";
     public string Greeting
     {
         get => _greeting;
