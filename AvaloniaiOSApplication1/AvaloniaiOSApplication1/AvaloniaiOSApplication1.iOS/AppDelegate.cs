@@ -19,7 +19,11 @@ public partial class AppDelegate : AvaloniaAppDelegate<App>
     protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
     {
         return base.CustomizeAppBuilder(builder)
-            .With(new iOSPlatformOptions { RenderingMode = [iOSRenderingMode.Metal] });
-            //.WithInterFont();
+            .With(new iOSPlatformOptions { RenderingMode = [iOSRenderingMode.Metal] })
+            .WithInterFont()
+            .AfterSetup(_ =>
+            {
+                AvaloniaiOSApplication1.Views.EmbeddedControl.Implementation = new EmbeddedSample();
+            });
     }
 }

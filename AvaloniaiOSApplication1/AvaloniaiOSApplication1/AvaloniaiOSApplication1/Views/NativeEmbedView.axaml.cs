@@ -6,7 +6,6 @@ using System;
 
 namespace AvaloniaiOSApplication1.Views
 {
-
     public partial class NativeEmbedView : UserControl
     {
         public NativeEmbedView()
@@ -24,11 +23,9 @@ namespace AvaloniaiOSApplication1.Views
 
         }
 
-        public bool IsSecond { get; set; }
-
         protected override IPlatformHandle CreateNativeControlCore(IPlatformHandle parent)
         {
-            return Implementation?.CreateControl(IsSecond, parent, () => base.CreateNativeControlCore(parent))
+            return Implementation?.CreateControl(parent, () => base.CreateNativeControlCore(parent))
                 ?? base.CreateNativeControlCore(parent);
         }
 
@@ -40,9 +37,8 @@ namespace AvaloniaiOSApplication1.Views
 
     public interface INativeDemoControl
     {
-        /// <param name="isSecond">Used to specify which control should be displayed as a demo</param>
         /// <param name="parent"></param>
         /// <param name="createDefault"></param>
-        IPlatformHandle CreateControl(bool isSecond, IPlatformHandle parent, Func<IPlatformHandle> createDefault);
+        IPlatformHandle CreateControl(IPlatformHandle parent, Func<IPlatformHandle> createDefault);
     }
 }
