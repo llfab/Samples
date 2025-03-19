@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
+  
   <Import Project="AvaloniaLibrary.props"/>
   
   <!-- Default Nuget consumption -->
-  <ItemGroup Condition="'$(BuildAvaloniaFromSource)' != 'true'">
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
-    <!-- Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration. -->
-    <PackageReference Condition="$(Configuration.StartsWith('Debug'))" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
   </ItemGroup>
-
-  <!-- Build Avalonia from source -->
-  <ItemGroup Condition="'$(BuildAvaloniaFromSource)' == 'true'">
-    <ProjectReference Include="$(AvaloniaRootFolder)\src\Avalonia.Fonts.Inter\Avalonia.Fonts.Inter.csproj"/>
-    <ProjectReference Include="$(AvaloniaRootFolder)\src\Avalonia.Themes.Fluent\Avalonia.Themes.Fluent.csproj"/>
-    <ProjectReference Include="$(AvaloniaRootFolder)\src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj"/>
-  </ItemGroup>
-  <Import Condition="'$(BuildAvaloniaFromSource)' == 'true'" Project="$(AvaloniaRootFolder)\build\SampleApp.props"/>
   
 </Project>

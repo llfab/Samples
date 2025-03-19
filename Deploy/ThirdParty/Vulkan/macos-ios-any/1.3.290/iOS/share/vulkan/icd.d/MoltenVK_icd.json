@@ -1,0 +1,8 @@
+{
+    "file_format_version": "1.0.0",
+    "ICD": {
+        "library_path": "../../Frameworks/MoltenVK.framework/MoltenVK",
+        "api_version": "1.2.0",
+        "is_portability_driver": true
+    }
+}

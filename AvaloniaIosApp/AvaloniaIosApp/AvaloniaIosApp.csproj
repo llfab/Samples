@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>net9.0;net9.0-ios</TargetFrameworks>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+
+  <Import Project="..\..\..\BuildConfig\AvaloniaLibrary.props" />
+  <Import Project="..\..\..\BuildConfig\AvaloniaFluentTheme.props" />
+
+  <ItemGroup>
+    <Content Include="Assets\**" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" PublishFolderType="Resource" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="AssetsEmbedded\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="PrecompiledShaders\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PrecompiledShaders\" />
+  </ItemGroup>
+
+</Project>

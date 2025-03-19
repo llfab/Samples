@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaIosApp", "AvaloniaIosApp\AvaloniaIosApp.csproj", "{F911A1BA-7B57-4490-9F81-E277E1B0A760}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaIosApp.Desktop", "AvaloniaIosApp.Desktop\AvaloniaIosApp.Desktop.csproj", "{4DC8B408-533D-4034-BF6D-844A4F9F2F07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaIosApp.iOS", "AvaloniaIosApp.iOS\AvaloniaIosApp.iOS.csproj", "{B635C374-8366-4DA1-9382-6DA6CD32D108}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{D20BF12F-3C6D-4E4D-9B71-44C28DF480FF}"
+	ProjectSection(SolutionItems) = preProject
+		..\BuildConfig\Appsettings.Embedded.props = ..\BuildConfig\Appsettings.Embedded.props
+		..\BuildConfig\Appsettings.props = ..\BuildConfig\Appsettings.props
+		..\BuildConfig\Avalonia.props = ..\BuildConfig\Avalonia.props
+		..\BuildConfig\AvaloniaApplication.Ios.props = ..\BuildConfig\AvaloniaApplication.Ios.props
+		..\BuildConfig\AvaloniaApplication.props = ..\BuildConfig\AvaloniaApplication.props
+		..\BuildConfig\AvaloniaFluentTheme.props = ..\BuildConfig\AvaloniaFluentTheme.props
+		..\BuildConfig\AvaloniaLibrary.props = ..\BuildConfig\AvaloniaLibrary.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F911A1BA-7B57-4490-9F81-E277E1B0A760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F911A1BA-7B57-4490-9F81-E277E1B0A760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F911A1BA-7B57-4490-9F81-E277E1B0A760}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F911A1BA-7B57-4490-9F81-E277E1B0A760}.Debug|x64.Build.0 = Debug|Any CPU
+		{F911A1BA-7B57-4490-9F81-E277E1B0A760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F911A1BA-7B57-4490-9F81-E277E1B0A760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F911A1BA-7B57-4490-9F81-E277E1B0A760}.Release|x64.ActiveCfg = Release|Any CPU
+		{F911A1BA-7B57-4490-9F81-E277E1B0A760}.Release|x64.Build.0 = Release|Any CPU
+		{4DC8B408-533D-4034-BF6D-844A4F9F2F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC8B408-533D-4034-BF6D-844A4F9F2F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC8B408-533D-4034-BF6D-844A4F9F2F07}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4DC8B408-533D-4034-BF6D-844A4F9F2F07}.Debug|x64.Build.0 = Debug|Any CPU
+		{4DC8B408-533D-4034-BF6D-844A4F9F2F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC8B408-533D-4034-BF6D-844A4F9F2F07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC8B408-533D-4034-BF6D-844A4F9F2F07}.Release|x64.ActiveCfg = Release|Any CPU
+		{4DC8B408-533D-4034-BF6D-844A4F9F2F07}.Release|x64.Build.0 = Release|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Debug|x64.Build.0 = Debug|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Release|x64.ActiveCfg = Release|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Release|x64.Build.0 = Release|Any CPU
+		{B635C374-8366-4DA1-9382-6DA6CD32D108}.Release|x64.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D3C6AD1-7885-4D82-A445-B9BE47B2D9B9}
+	EndGlobalSection
+EndGlobal

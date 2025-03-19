@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0-ios</TargetFramework>
+    <Platforms>AnyCPU</Platforms>
+    <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--<RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>-->
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <CodesignKey>Apple Development: user@someone.com (ASDFG12345)</CodesignKey>
+    <ProvisioningType>manual</ProvisioningType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignProvision>iOS Team Provisioning Profile: com.someone.AvaloniaIosApp</CodesignProvision>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignProvision>iOS Team Provisioning Profile: com.someone.AvaloniaIosApp</CodesignProvision>
+  </PropertyGroup>
+
+    <!-- Just if you want to work with VS 2022 with a paired MacOS device -->
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <EnvironmentVariables>
+      <HOT_RELOAD_ENABLED>false</HOT_RELOAD_ENABLED>
+    </EnvironmentVariables>
+  </PropertyGroup>
+
+  <Import Project="..\..\..\BuildConfig\Appsettings.Embedded.props" />
+  <Import Project="..\..\..\BuildConfig\AvaloniaApplication.Ios.props" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\AvaloniaIosApp\AvaloniaIosApp.csproj" />
+  </ItemGroup>
+
+  <!-- Package the reference to MoltenVK -->
+  <ItemGroup>
+    <NativeReference Include="..\..\Deploy\ThirdParty\Vulkan\macos-ios-any\1.3.290\iOS\lib\MoltenVK.xcframework">
+      <Kind>Framework</Kind>
+    </NativeReference>
+  </ItemGroup>
+
+  <!-- For non iOS simulator builds add the vulkan loader and validation layer -->
+  <ItemGroup Condition="!$(RuntimeIdentifier.Contains('simulator'))" >
+    <NativeReference Include="..\..\Deploy\ThirdParty\Vulkan\macos-ios-any\1.3.290\iOS\lib\vulkan.framework">
+      <Kind>Framework</Kind>
+    </NativeReference>
+    <NativeReference Include="..\..\Deploy\ThirdParty\Vulkan\macos-ios-any\1.3.290\iOS\lib\VkLayer_khronos_validation.framework">
+      <Kind>Framework</Kind>
+    </NativeReference>
+    <None Include="..\..\Deploy\ThirdParty\Vulkan\macos-ios-any\1.3.290\iOS\share\vulkan/**/*" CopyToOutputDirectory="PreserveNewest" PublishFolderType="RootDirectory" Link="vulkan/%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <!-- This setting suppresses the pop-up warning in VS 2022 when running the debugger with paired mac device -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties XamarinHotReloadMonoInterpreterErrorInfoBarAvaloniaIosAppiOSHideInfoBar="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+
+</Project>

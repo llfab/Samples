@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AvaloniaIosApp.ViewModels"
+             xmlns:v="clr-namespace:AvaloniaIosApp.Views"
+             xmlns:conv="clr-namespace:AvaloniaIosApp.UserControls.Converters"
+             xmlns:rend="clr-namespace:MyRenderingControls;assembly=MyRenderingControls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="850"
+             x:Class="AvaloniaIosApp.Views.MainView"
+             x:DataType="vm:MainViewModel">
+
+    <UserControl.Resources>
+    </UserControl.Resources>
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <!-- <vm:MainViewModel ConnectionModeEnabled="True" /> -->
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+    <!-- Use DockPanel to control layout -->
+    <Grid>
+
+        <rend:SceneViewer3D Name="PART_SceneViewer"
+                            UseCompatibilityRenderer="True"/>
+    </Grid>
+</UserControl>

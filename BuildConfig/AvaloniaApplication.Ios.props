@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  
+  <Import Project="AvaloniaLibrary.props"/>
+  
+  <!-- Default Nuget consumption -->
+  <ItemGroup>
+    <PackageReference Include="Avalonia.iOS" Version="$(AvaloniaVersion)" />
+  </ItemGroup>
+  
+</Project>
