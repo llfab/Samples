@@ -54,9 +54,12 @@
                                   Spacing="16"
                                   Margin="0 32 0 0">
                     <StackPanel Orientation="Horizontal"
-                                      Spacing="16">
+                                Spacing="16"
+                                Background="black">
                         <Slider Classes="largeSize"
                                 Orientation="Horizontal"
+                                RenderOptions.EdgeMode="Aliased"
+                                Margin="2 0 2 0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                 Minimum="-1"
